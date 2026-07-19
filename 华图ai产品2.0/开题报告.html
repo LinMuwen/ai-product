@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>沿途有声 — 开题报告 V2</title>
+<title>职途有声 — 开题报告 V2</title>
 <style>
 :root {
   --bg: #F5F2EA; --card-bg: #FFFFFF; --text: #1B3A2A; --text-secondary: #4B5563;
@@ -27,15 +27,16 @@ body::after{
 
 /* Cover */
 .cover{
-  max-width: 1000px; margin: 0 auto 50px; text-align: center; position: relative;
-  background: linear-gradient(135deg, #FFFFFF 0%, #F0F9F3 40%, #D4F0DF 80%, #A8D5B5 100%);
-  border-radius: 24px; overflow: hidden;
+  max-width: 1000px; margin: 0 auto 28px; position: relative;
+  background: linear-gradient(135deg, #FFFFFF 0%, #E6F5EC 40%, #C8E6D0 75%, #A8D8B8 100%);
+  border-radius: 16px; overflow: hidden;
   border: 1px solid rgba(45,170,102,0.25);
-  box-shadow: 0 20px 60px rgba(45,170,102,0.15), 0 4px 12px rgba(0,0,0,0.05);
-  min-height: 580px;
+  box-shadow: 0 8px 32px rgba(45,170,102,0.12);
+  min-height: 520px;
+  display: flex; align-items: center; justify-content: center;
 }
 .cover-art{position:absolute;inset:0;pointer-events:none;z-index:1}
-.cover-content{position:relative;z-index:2;padding:80px 50px 80px;text-align:center; display:flex; flex-direction:column; align-items:center; gap:32px}
+.cover-content{position:relative;z-index:2; text-align:center; display:flex; flex-direction:column; align-items:center; gap:28px}
 .cover-badge{
   display:inline-flex;align-items:center;gap:8px;
   padding:10px 24px;background:var(--primary);color:#fff;
@@ -55,7 +56,7 @@ body::after{
 }
 .cover h1{font-size:64px;font-weight:800;letter-spacing:2px;line-height:1.1;margin:0;color:#1B3A2A}
 .cover-badge::before{content:'';width:6px;height:6px;background:#fff;border-radius:50%;box-shadow:0 0 8px #fff}
-.cover h1{font-size:52px;font-weight:800;letter-spacing:2px;line-height:1.2;margin-bottom:6px;color:#1B3A2A}
+
 .cover h1 .accent{color:transparent;background:linear-gradient(135deg,var(--primary),var(--primary-dark));-webkit-background-clip:text;background-clip:text}
 .cover .subtitle{font-size:20px;color:var(--text-secondary);letter-spacing:2px;margin:0 auto;font-weight:500; line-height:1.6}
 .cover .quote{font-size:15px;color:var(--primary-dark);letter-spacing:2px;margin:16px auto 24px;font-style:italic}
@@ -135,8 +136,9 @@ blockquote{
 }
 
 /* Innovation cards */
-.innovation-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
-@media(max-width:768px){.innovation-grid{grid-template-columns:1fr}}
+.innovation-grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:14px;margin:16px 0}
+@media(max-width:900px){.innovation-grid{grid-template-columns:repeat(2, 1fr)}}
+@media(max-width:560px){.innovation-grid{grid-template-columns:1fr}}
 .innovation-card{
   background:#FAFBFA;border:1px solid var(--border-soft);border-radius:12px;padding:20px;
 }
@@ -215,6 +217,21 @@ blockquote{
 .mod-list li{
   font-size:13.5px; line-height:1.75; color:#374151; margin-bottom:4px;
 }
+
+/* ==== Agent Mini Grid (in module card) ==== */
+.agent-mini-grid{
+  display:grid; grid-template-columns:repeat(3, 1fr);
+  gap:5px; margin:10px 0 4px;
+}
+.agent-mini{
+  display:flex; align-items:center; justify-content:center;
+  padding:7px 4px; border-radius:6px;
+  font-size:12px; font-weight:700;
+  text-align:center;
+}
+.agent-mini.agent-data{background:rgba(74,144,226,0.08); color:#1E3A8A}
+.agent-mini.agent-plan{background:rgba(139,127,216,0.08); color:#4C1D95}
+.agent-mini.agent-monitor{background:rgba(45,170,102,0.1); color:#1B5E3F}
 
 /* ==== Colored Tags ==== */
 /* 标签统一为绿色 */
@@ -315,43 +332,47 @@ blockquote{
 
 <!-- COVER -->
 <div class="cover">
-  <svg class="cover-art" viewBox="0 0 1000 540" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <radialGradient id="orb1" cx="0.5" cy="0.5" r="0.5"><stop offset="0%" stop-color="#2DAA66" stop-opacity="0.1"/><stop offset="100%" stop-color="#2DAA66" stop-opacity="0"/></radialGradient>
-      <radialGradient id="orb2" cx="0.5" cy="0.5" r="0.5"><stop offset="0%" stop-color="#4A90E2" stop-opacity="0.07"/><stop offset="100%" stop-color="#4A90E2" stop-opacity="0"/></radialGradient>
-      <pattern id="grid" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1.2" fill="#2DAA66" opacity="0.12"/></pattern>
-    </defs>
-    <rect x="0" y="0" width="1000" height="540" fill="url(#grid)"/>
-    <circle cx="150" cy="100" r="200" fill="url(#orb1)"/>
-    <circle cx="900" cy="420" r="180" fill="url(#orb2)"/>
-    <line x1="60" y1="60" x2="120" y2="60" stroke="#2DAA66" stroke-width="2" opacity="0.7"/>
-    <line x1="60" y1="60" x2="60" y2="120" stroke="#2DAA66" stroke-width="2" opacity="0.7"/>
-    <line x1="940" y1="480" x2="880" y2="480" stroke="#2DAA66" stroke-width="2" opacity="0.7"/>
-    <line x1="940" y1="480" x2="940" y2="420" stroke="#2DAA66" stroke-width="2" opacity="0.7"/>
-    <rect x="80" y="440" width="8" height="8" fill="#2DAA66" opacity="0.8"/>
-    <rect x="94" y="440" width="8" height="8" fill="#2DAA66" opacity="0.5"/>
-    <rect x="80" y="454" width="8" height="8" fill="#2DAA66" opacity="0.5"/>
-    <rect x="906" y="78" width="8" height="8" fill="#2DAA66" opacity="0.8"/>
-    <rect x="920" y="78" width="8" height="8" fill="#2DAA66" opacity="0.5"/>
-    <circle cx="200" cy="380" r="4" fill="#2DAA66" opacity="0.7"/>
-    <circle cx="800" cy="160" r="4" fill="#2DAA66" opacity="0.7"/>
-    <circle cx="250" cy="100" r="3" fill="#2DAA66" opacity="0.5"/>
-    <circle cx="750" cy="400" r="3" fill="#2DAA66" opacity="0.5"/>
-    <line x1="100" y1="200" x2="160" y2="200" stroke="#2DAA66" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.7"/>
-    <line x1="840" y1="340" x2="900" y2="340" stroke="#2DAA66" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.7"/>
+  <!-- 装饰元素：角落L线 + 点状装饰 -->
+  <svg class="cover-art" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <!-- 左上角L形 -->
+    <line x1="40" y1="40" x2="120" y2="40" stroke="#2DAA66" stroke-width="2.5" opacity="0.85"/>
+    <line x1="40" y1="40" x2="40" y2="120" stroke="#2DAA66" stroke-width="2.5" opacity="0.85"/>
+    <!-- 左上角小方块 -->
+    <rect x="60" y="240" width="8" height="8" fill="#2DAA66" opacity="0.7"/>
+    <rect x="72" y="240" width="8" height="8" fill="#2DAA66" opacity="0.45"/>
+    <rect x="60" y="252" width="8" height="8" fill="#2DAA66" opacity="0.45"/>
+    <!-- 右上角小方块 -->
+    <rect x="1130" y="50" width="8" height="8" fill="#2DAA66" opacity="0.85"/>
+    <rect x="1142" y="50" width="8" height="8" fill="#2DAA66" opacity="0.5"/>
+    <rect x="1142" y="62" width="8" height="8" fill="#2DAA66" opacity="0.5"/>
+    <!-- 右下角L形 -->
+    <line x1="1160" y1="560" x2="1080" y2="560" stroke="#2DAA66" stroke-width="2.5" opacity="0.85"/>
+    <line x1="1160" y1="560" x2="1160" y2="480" stroke="#2DAA66" stroke-width="2.5" opacity="0.85"/>
+    <!-- 散点装饰 -->
+    <circle cx="240" cy="180" r="4" fill="#2DAA66" opacity="0.6"/>
+    <circle cx="960" cy="220" r="4" fill="#2DAA66" opacity="0.6"/>
+    <circle cx="180" cy="380" r="3" fill="#2DAA66" opacity="0.5"/>
+    <circle cx="1020" cy="340" r="3" fill="#2DAA66" opacity="0.5"/>
+    <!-- 虚线装饰 -->
+    <line x1="120" y1="450" x2="180" y2="450" stroke="#2DAA66" stroke-width="1.5" stroke-dasharray="3 4" opacity="0.6"/>
+    <line x1="1020" y1="150" x2="1080" y2="150" stroke="#2DAA66" stroke-width="1.5" stroke-dasharray="3 4" opacity="0.6"/>
+    <line x1="200" y1="100" x2="260" y2="100" stroke="#2DAA66" stroke-width="1.5" stroke-dasharray="3 4" opacity="0.5"/>
+    <line x1="940" y1="480" x2="1000" y2="480" stroke="#2DAA66" stroke-width="1.5" stroke-dasharray="3 4" opacity="0.5"/>
+    <!-- 右侧柔和光晕 -->
+    <circle cx="1100" cy="300" r="280" fill="#2DAA66" opacity="0.05"/>
+    <circle cx="100" cy="300" r="200" fill="#2DAA66" opacity="0.04"/>
   </svg>
+
   <div class="cover-content">
     <div class="cover-badge">华图教育 AI 产品开题报告</div>
-    <div class="product-name-tag">PRODUCT NAME</div>
-    <h1>沿途有声</h1>
+    <h1>职途有声</h1>
     <div class="title-glow"></div>
-    <p class="subtitle"><span class="product-name">沿途有声</span> · AI驱动的大学生全周期成长规划引擎</p>
-    
+    <p class="subtitle">职途有声 · AI 驱动的大学生全周期成长规划引擎</p>
     <div class="meta">
-      <div class="meta-item"><div class="meta-label">Team</div><div class="meta-value">蝶飞梧桐</div></div>
-      <div class="meta-item"><div class="meta-label">Direction</div><div class="meta-value">AI + 综合领域</div></div>
-      <div class="meta-item"><div class="meta-label">Target</div><div class="meta-value">华图教育</div></div>
-      <div class="meta-item"><div class="meta-label">Version</div><div class="meta-value">V2.0 / 2026.07</div></div>
+      <div class="meta-item"><div class="meta-label">TEAM</div><div class="meta-value">蝶飞梧桐</div></div>
+      <div class="meta-item"><div class="meta-label">DIRECTION</div><div class="meta-value">AI + 综合领域</div></div>
+      <div class="meta-item"><div class="meta-label">TARGET</div><div class="meta-value">华图教育</div></div>
+      
     </div>
   </div>
 </div>
@@ -363,15 +384,16 @@ blockquote{
   <div class="section-title"><span class="num">一</span> 项目概述<span class="ico">🎯</span></div>
 
   <h3>1.1 项目背景</h3>
-  <p>华图教育是职业教育领域领跑企业，全国超1000家学习中心、万余名员工，正从传统职业考试培训向全周期学习与职业服务延伸。华图已推出AI面试点评、AI申论批改等约20款AI产品，研发投入同比暴涨160%至1.45亿元，覆盖近70%员工的AI工作台。命题的核心课题是：如何面向海量在校学生，实现从"随性摸索"到"路径可落地"的跨越，为不同个体匹配专属成长方案。</p>
-  <p>当前大学生职业规划面临三重结构性问题：</p>
-  <p><strong>学情画像不精准：</strong>传统人工摸排效率低、维度单一。主流测评工具仅测性格兴趣，从未将家庭经济压力、父母职业资源、生理耐受度等客观条件纳入模型。78.3%的贫困在校生偏好体制内就业，但实际进入比例仅45.4%——脱离家庭约束的规划建议几乎没有落地价值（周宇香，2020）。</p>
-  <p><strong>定制规划效率低：</strong>大学分年级成长节点多、各赛道要求差异大，依靠人工批量产出个性化方案耗时耗力。郑雅君（2023）《金榜题名之后》揭示了"小镇做题家"的"直觉依赖模式"困境——家庭背景弱势的学生在外部指令撤除后，缺乏自主决策的内部系统。</p>
-  <p><strong>赛道路径拆解难：</strong>升学、公考、求职等方向分支繁杂，规则持续更新。更关键的是——没有任何产品利用真实案例数据做相似人群的路径回溯，帮学生优先排除不适配选项。</p>
-  <p><strong>产品战略意义：</strong>将用户触点从"决定考公后才找到华图"前移至"大学入学阶段即开始陪伴"，构建"免费职业探索 → 成长规划 → 日常伴学 → 识别需求 → 课程推荐 → 就业跟踪"的完整用户生命周期。</p>
+  <p>华图教育是职业教育领域领跑企业，<strong>全国超1000家学习中心、万余名员工</strong>，正从传统职业考试培训向<strong>全周期学习与职业服务</strong>延伸。华图已推出AI面试点评、AI申论批改等约<strong>20款AI产品</strong>，研发投入同比暴涨160%至<strong>1.45亿元</strong>，覆盖近<strong>70%员工</strong>的AI工作台。命题的核心课题是：<span class="quote-inline">如何面向海量在校学生，实现从"随性摸索"到"路径可落地"的跨越</span>，为不同个体匹配专属成长方案。</p>
+
+  <p><strong>当前大学生职业规划面临三重结构性问题：</strong></p>
+  <p><strong>学情画像不精准：</strong>传统人工摸排效率低、维度单一。主流测评工具仅测性格兴趣，<strong>从未将家庭经济压力、父母职业资源、生理耐受度等客观条件纳入模型</strong>。78.3%的贫困在校生偏好体制内就业，但实际进入比例仅45.4%——脱离家庭约束的规划建议几乎没有落地价值（周宇香，2020）。</p>
+  <p><strong>定制规划效率低：</strong>大学分年级成长节点多、各赛道要求差异大，依靠人工批量产出个性化方案耗时耗力。郑雅君（2023）《金榜题名之后》揭示了<span class="bad-quote">"小镇做题家"</span>的<span class="bad-quote">"直觉依赖模式"</span>困境——家庭背景弱势的学生在外部指令撤除后，缺乏自主决策的内部系统。</p>
+  <p><strong>赛道路径拆解难：</strong>升学、公考、求职等方向分支繁杂，规则持续更新。更关键的是——<strong>没有任何产品利用真实案例数据做相似人群的路径回溯</strong>，帮学生优先排除不适配选项。</p>
+  <p><strong>产品战略意义：</strong>将用户触点从<span class="bad-quote">"决定考公后才找到华图"</span>前移至<span class="quote-inline">"大学入学阶段即开始陪伴"</span>，构建<strong>"免费职业探索 → 成长规划 → 日常伴学 → 识别需求 → 课程推荐 → 就业跟踪"</strong>的完整用户生命周期。</p>
 
   <h3>1.2 产品定位</h3>
-  <p>本产品是一款<span class="product-name">沿途有声</span> · AI驱动的大学生全周期成长规划引擎，以AI大模型为底层智能核心，以多维学情画像为基础，以动态路径推演与阶段任务引擎为核心能力，覆盖大学4-5年全周期。产品帮助大学生回答三个终极问题："我是谁？我能去哪？下一步怎么走？"核心理念是：不追求给出"最热门"的职业方向，而是帮助学生找到不一定热门但最适合每个人的专属目标。用AI专家Agent代替高价人工咨询，做到"小镇做题家也有春天"。</p>
+  <p>本产品是一款<strong>AI驱动的大学生全周期成长规划引擎</strong>，以AI大模型为底层智能核心，以多维学情画像为基础，以动态路径推演与阶段任务引擎为核心能力，覆盖大学4-5年全周期。产品帮助大学生回答三个终极问题：<strong>"我是谁？我能去哪？下一步怎么走？"</strong>核心理念是：不追求给出"最热门"的职业方向，而是帮助学生深入认识到自己可能都没有意识到的真正需求，找到不一定热门但最适合每个人的专属职业目标。用AI专家Agent代替高价人工咨询，做到<strong>"小镇做题家也有春天"</strong>。</p>
 </div>
 
 <!-- ====== 二、市场与竞品分析 ====== -->
@@ -405,7 +427,6 @@ blockquote{
       <div class="data-source">AI 从加分项变成入场券 · 智联招聘</div>
     </div>
   </div>
-  <p>全球职业发展软件市场2025年约18.8亿美元，预计2032年达30.6亿美元。79.1%的应届生已采用AI工具辅助求职——<strong>但AI在规划领域的应用仍停留在"帮你写简历"的浅层</strong>。</p>
 
   <h3>2.2 竞品分析</h3>
   <p>对12款主流产品进行了系统拆解（求职精灵、职比特、北森、中公AI就业、粉笔、超级简历、牛客网、实习僧、互联派、前途问鹿、山小芽、学职平台），核心结论：</p>
@@ -415,9 +436,9 @@ blockquote{
     <li>所有产品聚焦大四求职，忽略大一至大三的启蒙和试错</li>
     <li>考培型产品（中公/粉笔）以规划为导流手段，本质卖课——规划是手段而非目的</li>
     <li>没有任何产品利用真实案例做相似人群路径回溯</li>
-    <li>没有任何产品将可穿戴生理监测纳入职业规划辅助</li>
+    <li>没有任何产品将运动手表生理监测纳入职业规划辅助</li>
   </ul>
-  <div class="source-line">完整竞品调研详见《大学生职业规划产品竞品分析报告（2026）》</div>
+  <div class="source-line">完整版请见其他附件材料：《竞品分析》</div>
 </div>
 
 <!-- ====== 三、学术理论支撑 ====== -->
@@ -426,7 +447,7 @@ blockquote{
 
   <h3>3.1 自我决定理论（SDT）</h3>
   <p>Ryan & Deci提出的SDT认为，自主性需求是行为持续性的前提。Cahyasari（2024）证实自我决定水平与生涯决策能力呈显著正相关（r=0.685）。Lu等（2024）基于1246名中国大学生追踪设计发现：学生需要先有能力想象"自己想成为谁"，单纯的"老师让你干什么"无法替代这种认知建构。</p>
-  <blockquote><strong>→ 产品启示：</strong>规划工具的Step 0必须是"目标澄清"——通过"目的先行"设计强制学生在起点明确"我为什么做规划"，打破直觉依赖模式。r=0.685为这一设计提供了可量化的效能依据。</blockquote>
+  <blockquote><strong>→ 产品启示：</strong>规划工具的Step 0必须是"目标澄清"——通过"目的先行"设计强制学生在起点明确"我为什么做规划"，打破直觉依赖模式。</blockquote>
 
   <h3>3.2 生涯建构理论（CCT）</h3>
   <p>Savickas提出的CCT以生涯适应力为核心概念。Gao等（2025）证实"能看见自己的未来路径"本身就是一种保护性心理资源。</p>
@@ -434,13 +455,13 @@ blockquote{
 
   <h3>3.3 家庭因素与文化再生产</h3>
   <p>Li等（2012）以高考成绩为控制变量，发现"干部父母"的毕业生起薪溢价高达15%。郑雅君（2023）区分了"目标掌控"与"直觉依赖"两种阶层习性。王昳玥等（2021）证实家庭SES通过心理资本完全中介职业探索。Qi等（2024）发现父母期望"直接指令无效"——只有通过激发子女主动探索才产生效果。</p>
-  <blockquote><strong>→ 产品启示：</strong>需多维建模家庭约束，对于来自高期望-强干预家庭的学生，引导其区分"父母想要的我"与"我想要的自己"。</blockquote>
+  <blockquote><strong>→ 产品启示：</strong>需多维建模家庭约束，对于来自高期望-强干预家庭的学生，为其保留自主决策的独立空间。</blockquote>
 
-  <h3>3.4 可穿戴生理监测的学术可行性</h3>
+  <h3>3.4 运动手表（HRV）的学术可行性</h3>
   <p>Kim等（2024）确认HRV在测量教育应激水平时具有中等共时效度。Benitez-Agudelo等（2025）发现学生"更好的成绩可能以长期身心健康为代价"。</p>
-  <blockquote><strong>→ 产品启示：</strong>可穿戴HRV监测已具备学术可行性，但目前尚无产品将其纳入职业规划辅助——这构成学术创新空间。</blockquote>
+  <blockquote><strong>→ 产品启示：</strong>用户授权同步的运动手表HRV监测已具备学术可行性，但目前尚无产品将其纳入职业规划辅助——这构成学术创新空间。</blockquote>
 
-  <div class="source-line">完整理论支撑详见《产品设计学术理论支撑》</div>
+  <div class="source-line">完整版请见其他附件材料：《产品设计依据-学术理论支撑》</div>
 </div>
 
 <!-- ====== 四、核心功能设计 ====== -->
@@ -449,74 +470,191 @@ blockquote{
 
   <div class="module-grid">
     <div class="module-card">
-      <div class="mod-head"><span class="mod-num">1</span><h4>职途初鉴 · 六维画像</h4><span class="mod-tag">画像系统</span></div>
-      <p><strong>六维画像</strong>：性格适配度、专业能力、兴趣匹配度、学习与知识、抗压与情绪、沟通协作，统一 <span class="hl-num">0-5 分</span>制。</p>
-      <p class="mod-emph-light">新增 <span class="quote-inline">"抗压与情绪"</span>、<span class="quote-inline">"沟通协作"</span> 两项<strong>业界空白</strong>评估维度。以 <span class="bad-quote">"家庭约束"</span> 和 <span class="bad-quote">"健康状况"</span> 旁注直接影响路径可行性 —— <strong>规划先问"你能不能"，再问"你想不想"</strong>。</p>
-    </div>
+  <div class="mod-head">
+    <span class="mod-num">1</span>
+    <h4>AI 成长管家 · 多 Agent 协作</h4>
+    <span class="mod-tag">Multi Agent</span>
+  </div>
+
+  <p>
+    系统采用<strong>“1 个核心成长管家 Agent + N 个专业 Agent”</strong>的协作架构。
+    核心 Agent 是学生唯一需要交互的入口，负责理解需求、管理上下文、
+    调度专业 Agent、汇总结果并解释下一步。
+    学生感受到的是一个持续理解自己的成长管家，背后则由多个专家Agent共同支持。
+  </p>
+
+  <div class="agent-mini-grid">
+    <span class="agent-mini agent-plan">核心成长管家</span>
+    <span class="agent-mini agent-data">画像数据分析</span>
+    <span class="agent-mini agent-plan">职业路径规划</span>
+    <span class="agent-mini agent-plan">资源课程检索</span>
+    <span class="agent-mini agent-monitor">进度复盘校准</span>
+    <span class="agent-mini agent-monitor">关键节点提醒</span>
+  </div>
+</div>
     <div class="module-card">
-      <div class="mod-head"><span class="mod-num">2</span><h4>我的榜样 · 前人案例参照</h4><span class="mod-tag">行业首创</span></div>
-      <p>基于 <strong>六维画像</strong> 做相似度匹配，推荐 <strong class="hl-num">"人生榜样"</strong> 及完整轨迹时间轴 —— 从大学起点到各关键节点。</p>
-      <p class="mod-emph-light">展示每个节点的<strong>决策、选择的代价、最终结果</strong>。对 <span class="quote-inline">"直觉依赖型"</span> 学生尤其重要 —— 抽象规划 → 具体可感知的路径参照。</p>
-      <p>冷启动：华图教研专家标注 <span class="hl-num">100-200</span> 条典型路径案例。</p>
-    </div>
-    <div class="module-card">
-      <div class="mod-head"><span class="mod-num">3</span><h4>多赛道路径推演引擎</h4><span class="mod-tag">推演核心</span></div>
-      <p>覆盖 <strong>公考、考研、出国、央国企、互联网、金融、教育、创业</strong> 等 <span class="hl-num">8+</span> 主赛道。</p>
-      <p class="mod-emph-light">四象限（<strong>难度 - 价值</strong>）可视化展示，支持 <span class="hl-num">3-4</span> 条路径并行对比。冷启动采用教研专家<strong>区间匹配</strong>，数据积累后自动切换 <strong>余弦相似度计算</strong>。</p>
-    </div>
-    <div class="module-card">
-      <div class="mod-head"><span class="mod-num">4</span><h4>分年级阶段任务引擎</h4><span class="mod-tag">执行闭环</span></div>
-      <p class="mod-flow"><span>大一 探索</span><span>→</span><span>大二 定向</span><span>→</span><span>大三 冲刺</span><span>→</span><span>大四 决胜</span></p>
-      <p>每项任务附带 <strong>华图教研资料</strong> 和 <strong>推荐课程</strong>。</p>
-      <p class="mod-emph-light">学习记录实时回流画像引擎，形成 <strong>"规划 → 学习 → 数据沉淀 → 画像刷新"</strong> 闭环。</p>
-    </div>
-    <div class="module-card">
-      <div class="mod-head"><span class="mod-num">5</span><h4>AI成长顾问 · 多Agent协同</h4></div>
-      <p>能力提升Agent（学业/备考/技能）与性格挖掘Agent（情感/个性挖掘）分工协作，共享底层画像，洞察实时同步。日常情感对话中持续深化对学生的理解。</p>
-    </div>
-    <div class="module-card">
-      <div class="mod-head"><span class="mod-num">6</span><h4>规划执行与动态跟踪</h4><span class="mod-tag">实时监测</span></div>
+      <div class="mod-head"><span class="mod-num">2</span><h4>规划执行与动态跟踪</h4><span class="mod-tag">实时监测</span></div>
       <p>四子模块构成完整跟踪闭环：</p>
       <ul class="mod-list">
         <li><strong>游戏化进度条</strong>：按任务难度系数加权显示</li>
         <li><strong>四节点检测</strong>：日/周/月/学期 完成率 + 目标偏离 + 匹配漂移 + 预警分级</li>
-        <li><strong>身心状态报备</strong>：可穿戴 HRV → 应激检测 → <span class="bad-quote">岗位风险标记</span></li>
+        <li><strong>身心状态报备</strong>：运动手表 HRV → 应激检测 → <span class="bad-quote">岗位风险标记</span></li>
         <li><strong>阶段复盘报告</strong>：每阶段结束自动生成总结 + 优化建议</li>
       </ul>
+    </div>
+    <div class="module-card">
+      <div class="mod-head"><span class="mod-num">3</span><h4>职途初鉴 · 八维画像</h4><span class="mod-tag">画像系统</span></div>
+      <p><strong>八维画像</strong>：性格适配度、专业能力、兴趣匹配度、学习与知识、抗压与情绪、沟通协作、<span class="hl-num">健康情况</span>、<span class="hl-num">家庭情况</span>，统一 <span class="hl-num">0-5 分</span>制。</p>
+      <p>新增 <span class="quote-inline">"抗压与情绪"</span>、<span class="quote-inline">"沟通协作"</span>、<span class="quote-inline">"健康情况"</span>、<span class="quote-inline">"家庭情况"</span> 四项<strong>业界空白</strong>评估维度 —— <strong>规划先问"你能不能"，再问"你想不想"</strong>。</p>
+    </div>
+    <div class="module-card">
+      <div class="mod-head"><span class="mod-num">4</span><h4>我的榜样 · 前人案例参照</h4><span class="mod-tag">行业首创</span></div>
+      <p>基于<strong>八维画像</strong>做相似度匹配，推荐<strong>"人生榜样"</strong>及完整轨迹时间轴。对<span class="quote-inline">"直觉依赖型"</span>学生尤其重要。冷启动由华图教研专家标注<span class="hl-num">100-200</span>条典型路径案例。</p>
+    </div>
+    <div class="module-card">
+      <div class="mod-head"><span class="mod-num">5</span><h4>多赛道路径推演引擎</h4><span class="mod-tag">推演核心</span></div>
+      <p>覆盖<strong>公考、考研、出国、央国企、互联网、金融、教育、创业</strong>等<span class="hl-num">8+</span>主赛道。四象限（<strong>难度-价值</strong>）可视化展示，支持<span class="hl-num">3-4</span>条路径并行对比。冷启动教研专家区间匹配→数据积累后自动切换相似度计算。</p>
+    </div>
+    <div class="module-card">
+      <div class="mod-head"><span class="mod-num">6</span><h4>分年级阶段任务引擎</h4><span class="mod-tag">任务引擎</span></div>
+      <p class="mod-flow"><span>大一 探索</span><span>→</span><span>大二 定向</span><span>→</span><span>大三 冲刺</span><span>→</span><span>大四 决胜</span></p>
+      <p>每项任务附带<strong>华图教研资料</strong>和<strong>推荐课程</strong>，学习记录实时回流画像引擎，形成<strong>"规划→学习→数据沉淀→画像刷新"</strong>闭环。</p>
     </div>
   </div>
 </div>
 
-<!-- ====== 五、技术架构 ====== -->
+<!-- ====== 五、技术架构设计 ====== -->
 <div class="section">
   <div class="section-title"><span class="num">五</span> 技术架构设计<span class="ico">🔧</span></div>
 
   <h3>5.1 整体架构</h3>
-  <p>四层架构：<strong>展现层</strong>（学生端H5/小程序 + 高校管理后台 + 运营看板）→ <strong>应用层</strong>（学情画像/路径推演/任务引擎/AI顾问/数据报告/榜样匹配）→ <strong>AI引擎层</strong>（LLM对话引擎/画像建模引擎/路径推荐算法/任务生成引擎/多Agent协同）→ <strong>数据层</strong>（用户画像库/赛道知识图谱/任务模板库/华图教研库/行为日志/正反案例库）。</p>
+<p>
+  项目采用四层架构：</p>
+  <strong>展现层</strong>（学生端 H5 / 小程序 + 高校管理后台 + 运营看板）</p>
+  <strong>应用层</strong>（动态画像 / 路径推演 / 四周计划 / 任务反馈 / 周期复盘 / 榜样匹配）</p>
+  <strong>AI引擎层</strong>（Agent Harness / LLM 对话引擎 / 画像建模引擎 / 路径推荐算法 / 任务生成引擎 / RAG 检索）</p>
+  <strong>数据层</strong>（用户与画像证据库 / 赛道知识图谱 / 任务模板库 / 华图教研库 / 行为日志 / 正反案例库）。
+</p>
 
-  <h3>5.2 三大AI核心引擎</h3>
-  <p><strong>画像建模引擎：</strong>融合游戏化测评 + Agent对话挖掘 + 学习行为数据 + 情感交互记录，构建六维动态画像。通过持续行为日志和可穿戴数据进行增量更新——强调"主动知识沉淀"而非一次性测评。</p>
-  <p><strong>赛道匹配与路径推演引擎：</strong>两阶段算法——冷启动：教研专家标注100-200条典型路径案例+赛道理想画像区间匹配；数据积累后自动切换余弦相似度匹配。技术路线：知识图谱（Neo4j）+ 余弦相似度 + 专家区间标注。</p>
-  <p><strong>阶段任务生成引擎：</strong>赛道 × 年级 × 能力差距 × 节点日历 → LLM生成学期任务清单+推荐资源，支持自然语言动态切换和重新推演。技术路线：LLM + 规则引擎 + 模板库。</p>
+<p>
+  系统以 <strong>Agent Harness</strong> 作为 AI 运行底座，统一管理模型调用、上下文组装、工具调用、记忆读取、
+  流程状态和异常降级。画像、路径、任务与复盘共享同一份用户证据和计划版本，避免不同模块之间出现信息割裂。
+</p>
 
-  <h3>5.3 核心技术栈</h3>
-  <div class="table-wrap">
-    <table class="styled-table">
-      <thead><tr><th>技术模块</th><th>推荐方案</th><th>说明</th></tr></thead>
-      <tbody>
-        <tr><td>大语言模型</td><td>混元 / DeepSeek / 文心</td><td>对话交互、文本生成、知识问答</td></tr>
-        <tr><td>知识图谱</td><td>Neo4j + 自研Schema</td><td>赛道路径、条件节点、关联关系存储</td></tr>
-        <tr><td>推荐算法</td><td>余弦相似度 + 专家冷启动</td><td>赛道-学生匹配度排序</td></tr>
-        <tr><td>前端</td><td>React + Vite</td><td>SPA应用，响应式布局</td></tr>
-        <tr><td>后端</td><td>Python FastAPI</td><td>高并发、微服务架构</td></tr>
-        <tr><td>数据存储</td><td>MySQL + Redis + ES</td><td>结构化存储 + 缓存 + 全文检索</td></tr>
-        <tr><td>可视化</td><td>ECharts / D3.js</td><td>雷达图、路径对比、进度条</td></tr>
-      </tbody>
-    </table>
-  </div>
+
+<h3>5.2 三大AI核心引擎</h3>
+
+<p>
+  <strong>画像建模引擎：</strong>
+  融合游戏化测评、Agent 对话、用户主动补充、学习行为数据和授权设备数据，
+  构建由<strong>性格、能力、家庭约束、生理指标等</strong>组成的八维动态画像。
+  每项画像结论同步记录证据来源、置信度和信息缺口，并通过持续行为日志进行增量更新，
+  强调<span class="quote-inline">“主动知识沉淀”</span>，而非依赖一次性测评。
+  普通情绪表达不会直接写入长期画像，设备数据仅用于状态提醒和任务强度调整，不进行心理或健康诊断。
+</p>
+
+<p>
+  <strong>赛道匹配与路径推演引擎：</strong>
+  采用“专家规则冷启动 + 数据驱动持续优化”的两阶段方案。
+  冷启动阶段由教研专家标注 100—200 条典型路径案例、赛道能力要求和适配区间，
+  结合用户画像证据完成首轮匹配；数据积累后逐步引入向量相似度召回、行为反馈重排和案例匹配。
+  技术路线为：
+  <strong>知识图谱（Neo4j）+ 专家区间标注 + 规则约束 + 向量相似度匹配</strong>。
+  系统最多展示三条候选路径，不输出精确成功率，重大选择仍由用户最终确认。
+</p>
+
+<p>
+  <strong>阶段任务生成引擎：</strong>
+  综合赛道方向、用户年级、能力差距、现实约束、可投入时间和关键节点日历，
+  先生成可执行的四周行动计划，再根据任务反馈滚动扩展到月度或学期计划。
+  规则引擎负责约束任务顺序、截止时间、难度权重和完成标准，
+  LLM 负责生成个性化说明、资源推荐和计划调整建议。
+  技术路线为：
+  <strong>LLM + 规则引擎 + 任务模板库 + 节点日历 + 计划版本管理</strong>。
+  每次任务调整都会说明触发原因、调整前后差异和下一次复盘时间。
+</p>
+
+<p>
+  <strong>Agent记忆与RAG机制：</strong>
+  Agent 使用分层记忆机制管理用户上下文：
+  Redis 保存当前会话和短期状态，PostgreSQL 保存经过确认的长期画像、任务和反馈记录，
+  pgvector 保存案例、课程和教研内容的向量表示。
+  Agent 回答前通过 RAG 检索华图教研库、任务模板库、赛道知识和相似案例，
+  并将检索依据与生成结果一起返回，实现可追溯的知识问答和规划建议。
+</p>
+
+
+<h3>5.3 核心技术栈</h3>
+<div class="table-wrap">
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th>技术模块</th>
+        <th>推荐方案</th>
+        <th>说明</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>大语言模型</td>
+        <td>混元 / DeepSeek / 文心 + 统一模型适配层</td>
+        <td>对话理解、画像归纳、任务生成、计划调整和知识问答；支持模型切换、超时降级和静态 fallback</td>
+      </tr>
+
+      <tr>
+        <td>Agent运行框架</td>
+        <td>Agent Harness + 状态机 + Tool Calling + Guardrails</td>
+        <td>统一管理上下文、模型路由、工具调用、流程状态、输出校验和异常恢复</td>
+      </tr>
+
+      <tr>
+        <td>Agent记忆与RAG</td>
+        <td>PostgreSQL + pgvector + Redis</td>
+        <td>短期会话记忆、长期画像记忆、语义检索、相似案例召回和华图教研知识增强</td>
+      </tr>
+
+      <tr>
+        <td>知识图谱</td>
+        <td>Neo4j + 领域Schema</td>
+        <td>存储赛道、岗位、能力要求、关键节点、任务依赖和案例之间的多层关系</td>
+      </tr>
+
+      <tr>
+        <td>推荐算法</td>
+        <td>专家冷启动 + 规则约束 + 向量召回 + 反馈重排</td>
+        <td>完成赛道与学生的初始匹配，并根据任务结果和用户反馈持续优化推荐顺序</td>
+      </tr>
+
+      <tr>
+        <td>前端</td>
+        <td>Next.js + React + TypeScript + Tailwind CSS</td>
+        <td>构建学生端、管理端和 Agent 对话界面，支持响应式布局、静态生成和组件化开发</td>
+      </tr>
+
+      <tr>
+        <td>后端</td>
+        <td>Python FastAPI + Pydantic + SQLAlchemy</td>
+        <td>提供画像、路径、任务、反馈、复盘和模型调用 API；首期采用模块化单体，后续按负载拆分服务</td>
+      </tr>
+
+      <tr>
+        <td>核心数据存储</td>
+        <td>PostgreSQL + Redis + 对象存储</td>
+        <td>分别承载结构化业务数据、缓存与会话状态，以及简历、成果和报告等文件资源</td>
+      </tr>
+
+      <tr>
+        <td>异步任务与提醒</td>
+        <td>Celery / ARQ + Redis</td>
+        <td>处理模型异步调用、任务到期提醒、关键节点预警和日周月复盘任务</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 </div>
 
-<!-- ====== 六、商业模式 ====== -->
+<!-- ====== 六、商业模式设计 ====== -->
 <div class="section section-soft">
   <div class="section-title"><span class="num">六</span> 商业模式设计<span class="ico">💼</span></div>
 
@@ -544,11 +682,11 @@ blockquote{
     <table class="styled-table">
       <thead><tr><th>对比维度</th><th>综合型（北森/求职精灵）</th><th>考培型（中公/粉笔）</th><th>垂直/官方型</th><th class="highlight">我们的方案</th></tr></thead>
       <tbody>
-        <tr><td>测评维度</td><td>六维（标准化）</td><td>基础/人工</td><td>弱/零散</td><td class="highlight"><strong>六维（含家庭约束+生理指标）</strong></td></tr>
+        <tr><td>测评维度</td><td>标准化测评</td><td>基础/人工</td><td>弱/零散</td><td class="highlight"><strong>八维（含家庭情况+健康情况）</strong></td></tr>
         <tr><td>客观约束筛查</td><td>无</td><td>无</td><td>无</td><td class="highlight"><strong>首创</strong></td></tr>
         <tr><td>规划目的选择</td><td>无</td><td>无</td><td>无</td><td class="highlight"><strong>首创（四种目的可选）</strong></td></tr>
         <tr><td>前人案例参照</td><td>无</td><td>无</td><td>无</td><td class="highlight"><strong>首创（正反案例+回溯）</strong></td></tr>
-        <tr><td>生理数据监测</td><td>无</td><td>无</td><td>无</td><td class="highlight"><strong>首创（可穿戴+应激归因）</strong></td></tr>
+        <tr><td>生理数据监测</td><td>无</td><td>无</td><td>无</td><td class="highlight"><strong>首创（运动手表+应激归因）</strong></td></tr>
         <tr><td>持续跟踪</td><td>弱（一次性报告）</td><td>备考跟踪/人工</td><td>无</td><td class="highlight"><strong>四节点检测（日/周/月/学期）</strong></td></tr>
         <tr><td>规划定位</td><td>目的</td><td>手段（导流卖课）</td><td>目的/工具</td><td class="highlight"><strong>目的</strong></td></tr>
       </tbody>
@@ -562,42 +700,52 @@ blockquote{
 
   <div class="innovation-grid">
     <div class="innovation-card">
-      <div class="innov-head"><span class="innov-num">01</span><h5>目的先行</h5><span class="innov-tag">范式重构</span></div>
-      <p>所有竞品默认学生以 <strong>"自我实现"</strong> 为单一目标，本产品强制用户在起点选择 <strong>"我做职业规划是为了什么"</strong>（自我实现 / 经济独立 / 摆脱原生家庭 / 体验多元人生）。</p>
-      <p class="innov-emph-light">SDT 证明自主性需求满足直接预测决策质量（<span class="big-num">r=0.685</span>）—— 这不是增量优化，而是对"职业规划"本身的重新定义：<strong>从"帮你找最好的路" → "先帮你想清楚你为什么要走路"</strong>。</p>
+      <div class="innov-head"><span class="innov-num">01</span><h5>多 Agent 协同</h5><span class="innov-tag">9 Agent</span></div>
+      <p>9 个 Agent 按职能分层协作，<strong>共享底层画像与事件总线</strong>，按需调度：</p>
+      <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:4px; margin:8px 0">
+        <span style="display:flex; align-items:center; justify-content:center; padding:4px 2px; background:rgba(74,144,226,0.08); color:#1E3A8A; border-radius:6px; font-size:11px; font-weight:700">数据采集</span>
+        <span style="display:flex; align-items:center; justify-content:center; padding:4px 2px; background:rgba(74,144,226,0.08); color:#1E3A8A; border-radius:6px; font-size:11px; font-weight:700">画像建模</span>
+        <span style="display:flex; align-items:center; justify-content:center; padding:4px 2px; background:rgba(74,144,226,0.08); color:#1E3A8A; border-radius:6px; font-size:11px; font-weight:700">案例匹配</span>
+        <span style="display:flex; align-items:center; justify-content:center; padding:4px 2px; background:rgba(139,127,216,0.08); color:#4C1D95; border-radius:6px; font-size:11px; font-weight:700">职业规划</span>
+        <span style="display:flex; align-items:center; justify-content:center; padding:4px 2px; background:rgba(139,127,216,0.08); color:#4C1D95; border-radius:6px; font-size:11px; font-weight:700">能力提升</span>
+        <span style="display:flex; align-items:center; justify-content:center; padding:4px 2px; background:rgba(139,127,216,0.08); color:#4C1D95; border-radius:6px; font-size:11px; font-weight:700">性格挖掘</span>
+        <span style="display:flex; align-items:center; justify-content:center; padding:4px 2px; background:rgba(45,170,102,0.1); color:#1B5E3F; border-radius:6px; font-size:11px; font-weight:700">进度监督</span>
+        <span style="display:flex; align-items:center; justify-content:center; padding:4px 2px; background:rgba(45,170,102,0.1); color:#1B5E3F; border-radius:6px; font-size:11px; font-weight:700">情感陪伴</span>
+        <span style="display:flex; align-items:center; justify-content:center; padding:4px 2px; background:rgba(45,170,102,0.1); color:#1B5E3F; border-radius:6px; font-size:11px; font-weight:700">异常预警</span>
+      </div>
     </div>
     <div class="innovation-card">
-      <div class="innov-head"><span class="innov-num">02</span><h5>客观约束与主观偏好解耦</h5><span class="innov-tag">行业首创</span></div>
-      <p>先按 <strong>家庭条件</strong>、<strong>身体机能</strong>、<strong>精力阈值</strong> 划定可行性区间，再结合兴趣与价值观调优。</p>
-      <p class="innov-emph-light">杜绝 <span class="bad-quote">"测出来你适合做咨询但你家掏不起 MBA 学费"</span> 的脱离现实规划。</p>
-      <p><strong>实现路径：</strong><span class="path-tag">家庭约束旁注</span><span class="path-tag">可穿戴生理监测</span></p>
+      <div class="innov-head"><span class="innov-num">02</span><h5>游戏化冷启动</h5><span class="innov-tag">模拟人生</span></div>
+      <p>首次使用时通过<strong>"模拟人生"式场景选择小游戏</strong>，让学生在沉浸式互动中自然暴露性格偏好、价值取向和能力倾向——告别枯燥问卷。学生在玩游戏的过程中<strong>完成画像采集</strong>，游戏行为数据作为多Agent的初始输入。</p>
     </div>
     <div class="innovation-card">
-      <div class="innov-head"><span class="innov-num">03</span><h5>前人案例正向匹配</h5><span class="innov-tag">首创</span></div>
-      <p>首创 <strong>"人生榜样"</strong> 正向匹配机制：基于 <strong>六维画像</strong> 进行相似度匹配，找到与用户背景高度相似且已达成目标的真实案例。</p>
-      <p class="innov-emph-light">展示其 <strong>完整轨迹时间轴</strong>——从大学起点到各关键节点。对 <span class="quote-inline">"直觉依赖型"</span> 学生尤其重要。</p>
-      <p>冷启动：华图教研专家标注 <strong class="hl-num">100-200</strong> 条典型案例。</p>
+      <div class="innov-head"><span class="innov-num">03</span><h5>数据闭环与持续进化</h5><span class="innov-tag">自进化</span></div>
+      <p>从<span class="bad-quote">被动询问</span>到<strong>主动知识沉淀</strong>——学生每次学习、每次提问、每次情绪表达都回流至画像模型。形成<strong>"规划→执行→数据沉淀→画像刷新→更精准规划"</strong>的自进化闭环。就业后回访数据验证，持续优化推荐准确率。</p>
     </div>
     <div class="innovation-card">
-      <div class="innov-head"><span class="innov-num">04</span><h5>多 Agent 协同 + 游戏化冷启动</h5><span class="innov-tag">双Agent</span></div>
-      <p><span class="agent-tag agent-1">能力提升 Agent</span><span class="agent-tag agent-2">性格挖掘 Agent</span></p>
-      <p>两个 Agent 分工协作，<strong>共享底层画像</strong>，保证各领域服务深度。</p>
-      <p class="innov-emph-light">首次使用时通过 <strong>"模拟人生"式场景选择小游戏</strong>，让学生在沉浸式互动中自然暴露性格偏好 —— 告别枯燥问卷。</p>
+      <div class="innov-head"><span class="innov-num">04</span><h5>目的先行</h5><span class="innov-tag">范式重构</span></div>
+      <p>所有竞品默认学生以<span class="bad-quote">"自我实现"</span>为单一目标，本产品强制用户在起点选择<strong>"我做职业规划是为了什么"</strong>（自我实现/经济独立/摆脱原生家庭/体验多元人生）。SDT证明自主性需求满足直接预测决策质量——这不是增量优化，而是对"职业规划"本身的重新定义：<strong>从"帮你找最好的路"→"先帮你想清楚你为什么要走路"</strong>。</p>
     </div>
-    <div class="innovation-card innov-wide">
-      <div class="innov-head"><span class="innov-num">05</span><h5>数据闭环与持续进化</h5><span class="innov-tag">自进化</span></div>
-      <p>从 <span class="bad-quote">被动询问</span> 到 <strong>主动知识沉淀</strong> —— 学生每次学习、每次提问、每次情绪表达都回流至画像模型。</p>
-      <p class="innov-emph-light">形成 <strong>"规划 → 执行 → 数据沉淀 → 画像刷新 → 更精准规划"</strong> 的自进化闭环。就业后回访数据验证，持续优化推荐准确率。</p>
+    <div class="innovation-card">
+      <div class="innov-head"><span class="innov-num">05</span><h5>客观约束与主观偏好解耦</h5><span class="innov-tag">行业首创</span></div>
+      <p>先按<strong>家庭条件</strong>、<strong>身体机能</strong>、<strong>精力阈值</strong>划定可行性区间，再结合兴趣与价值观调优。杜绝<span class="bad-quote">"测出来你适合做咨询但你家掏不起MBA学费"</span>的脱离现实规划。</p>
+      <p><strong>实现路径：</strong><span class="path-tag">家庭约束旁注</span><span class="path-tag">运动手表授权数据接入</span></p>
+    </div>
+    <div class="innovation-card">
+      <div class="innov-head"><span class="innov-num">06</span><h5>前人案例正向匹配</h5><span class="innov-tag">首创</span></div>
+      <p>首创<strong>"人生榜样"</strong>正向匹配机制：基于<strong>八维画像</strong>进行相似度匹配，找到与用户背景高度相似且已达成目标的真实案例。展示其<strong>完整轨迹时间轴</strong>——从大学起点到各关键节点。对<span class="quote-inline">"直觉依赖型"</span>学生尤其重要。冷启动：华图教研专家标注<strong>100-200</strong>条典型案例。</p>
     </div>
   </div>
 </div>
 
-<!-- ====== 九、预期价值 ====== -->
+<!-- ====== 九、预期价值与成果 ====== -->
 <div class="section section-dark">
   <div class="section-title"><span class="num">九</span> 预期价值与成果<span class="ico">🌟</span></div>
 
   <h3>9.1 商业价值</h3>
   <ul>
+    <li><strong>C 端用户会员费：</strong>面向个人大学生提供会员订阅服务（99-299 元/年），解锁深度规划报告、动态任务引擎、无限制 AI 顾问等进阶功能</li>
+    <li><strong>B 端高校服务费：</strong>面向高校就业中心/院系提供 SaaS 服务（5-50 万/校/年），包括学情数据看板、批量辅导工具、定制化报告</li>
     <li><strong>精准转化：</strong>基于画像的课程推荐预计转化率提升3-5倍，降低华图获客成本30%以上</li>
     <li><strong>数据资产：</strong>积累百万级大学生成长数据，形成行业独有的学情数据库</li>
   </ul>
@@ -609,14 +757,15 @@ blockquote{
     <li><strong>人才培养：</strong>缩短学生从校园到职场的适应周期</li>
   </ul>
 
-  <p style="text-align:center;font-size:16px;color:#FFD56B;font-weight:700;margin-top:20px">
+  <p style="text-align:center;font-size:16px;color:#FFD56B;font-weight:700;margin-top:24px">
     让每一位大学生，都拥有一份属于自己的、看得见未来的成长地图。
   </p>
+  <p style="text-align:center;font-size:13px;color:#A8D5B5;margin-top:12px;font-style:italic">「职途有声」陪伴中国 4000 万大学生走好大学四年的每一步</p>
 </div>
 
-<!-- ====== 六维画像维度表 ====== -->
+<!-- ====== 附录：八维画像维度详表 ====== -->
 <div class="section">
-  <div class="section-title"><span class="num">附</span> 六维画像维度详表<span class="ico">📏</span></div>
+  <div class="section-title"><span class="num">附</span> 八维画像维度详表<span class="ico">📏</span></div>
   <div class="table-wrap">
     <table class="styled-table">
       <thead><tr><th>维度</th><th>核心数据来源</th><th>打分方式</th><th>特色</th></tr></thead>
@@ -627,6 +776,8 @@ blockquote{
         <tr><td>学习与知识</td><td>学历解析 + 持续学习记录</td><td>学历×0.5 + 持续力×0.5</td><td>聚焦可发展性</td></tr>
         <tr><td>抗压与情绪</td><td>大五神经质反向 + 压力游戏 + 自评</td><td>情绪稳定+耐受+复原</td><td>行业首创维度</td></tr>
         <tr><td>沟通协作</td><td>大五外向性/宜人性 + 简历团队经历</td><td>表达×0.4 + 协作×0.35 + 影响×0.25</td><td>行业首创维度</td></tr>
+        <tr><td>健康情况</td><td>运动手表 HRV + 睡眠数据 + 压力游戏</td><td>体能耐受×0.3 + HRV抗压×0.3 + 精力阈值×0.4，<strong>影响岗位适配度</strong></td><td>行业首创维度</td></tr>
+        <tr><td>家庭情况</td><td>家庭 SES + 父母期望问卷 + 沟通质量</td><td>经济资本×0.4 + 文化资本×0.3 + 社会资源×0.3，<strong>影响规划优先级</strong></td><td>行业首创维度</td></tr>
       </tbody>
     </table>
   </div>

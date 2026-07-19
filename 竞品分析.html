@@ -64,7 +64,7 @@
     position: relative; z-index: 2;
     padding: 40px 50px 40px;
     width: 100%;
-    display: flex; flex-direction: column; align-items: center; gap: 18px;
+    display: flex; flex-direction: column; align-items: center; gap: 12px;
   }
   .cover-badge {
     display: inline-flex;
@@ -116,6 +116,8 @@
     font-weight: 800;
     letter-spacing: 1px;
     line-height: 1.2;
+    margin: 0 0 -4px 0;
+  }
     margin-bottom: 12px;
     color: #1B3A2A;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
@@ -156,7 +158,7 @@
     font-size: 15px;
     color: #4B5563;
     letter-spacing: 1.5px;
-    margin-bottom: 50px;
+    margin: 6px 0 20px 0;
     font-weight: 400;
   }
   .cover .meta {
@@ -351,6 +353,8 @@
     border-bottom: 1px solid #F3F4F6;
     text-align: center;
     color: #4B5563;
+    word-break: break-all;
+    word-wrap: break-word;
   }
   .styled-table td.row-header {
     text-align: left;
@@ -365,9 +369,11 @@
     font-weight: 700;
   }
   .styled-table tr:last-child td { border-bottom: none; }
-  .styled-table tr:hover td { background: #FAFBFA; }
-  .styled-table tr:hover td.row-header { background: #FFFFFF; }
-  .styled-table tr:hover td.highlight { background: #D4F0DF; }
+  @media (hover: hover) and (pointer: fine) {
+    .styled-table tr:hover td { background: #FAFBFA; }
+    .styled-table tr:hover td.row-header { background: #FFFFFF; }
+    .styled-table tr:hover td.highlight { background: #D4F0DF; }
+  }
 
   /* Star inline */
   .star { color: var(--yellow); font-size: 13px; letter-spacing: 1px; }
@@ -456,6 +462,7 @@
 </head>
 <body>
 
+
 <!-- ====== COVER ====== -->
 <div class="cover">
   <!-- 科技感装饰背景 -->
@@ -514,7 +521,7 @@
   </svg>
 
   <div class="cover-content">
-    <div class="cover-badge">华图教育 AI 产品开题报告</div>
+    <div class="cover-badge">华图教育 AI 产品</div>
     <h1>产品<span class="accent">竞品分析</span></h1>
     <div class="title-glow"></div>
     <p class="subtitle">覆盖 12 款产品  ·  自有调研 + 行业资料  ·  为自研产品提供差异化依据</p>
@@ -869,7 +876,7 @@
         </tr>
         <tr>
           <td class="row-header">持续跟踪</td>
-          <td>弱</td><td>中 (顾问)</td><td>✗</td><td>备考跟踪</td><td>人工</td>
+          <td>弱</td><td>中</td><td>✗</td><td>备考跟踪</td><td>人工</td>
           <td>✗</td><td>弱</td><td>✗</td><td>咨询记录</td><td>✗</td>
           <td class="highlight"><b>多维度检测</b></td>
         </tr>

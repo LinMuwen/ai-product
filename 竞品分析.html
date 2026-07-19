@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>大学生职业规划产品 — 竞品分析报告</title>
+<style>
+  :root {
+    --bg: #F5F2EA;
+    --card-bg: #FFFFFF;
+    --text: #1F2937;
+    --text-secondary: #6B7280;
+    --text-muted: #9CA3AF;
+    --primary: #2DAA66;
+    --primary-light: #E8F5ED;
+    --primary-dark: #1E7E4A;
+    --primary-glow: rgba(45, 170, 102, 0.08);
+    --border: #E5E7EB;
+    --border-soft: #F0EFEA;
+    --red: #E85D5D;
+    --red-light: #FDECEC;
+    --orange: #F39C42;
+    --orange-light: #FEF3E4;
+    --green: #2DAA66;
+    --green-light: #E8F5ED;
+    --purple: #8B7FD8;
+    --purple-light: #F0EEFB;
+    --yellow: #E5B547;
+    --yellow-light: #FDF6E0;
+    --blue: #4A90E2;
+    --blue-light: #E8F1FB;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    padding: 40px 20px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Cover */
+  .cover {
+    max-width: 1000px;
+    margin: 0 auto 50px;
+    text-align: center;
+    position: relative;
+    background: linear-gradient(135deg, #FFFFFF 0%, #FAFEFC 60%, #F0F9F3 100%);
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid rgba(45, 170, 102, 0.18);
+    box-shadow:
+      0 20px 60px rgba(45, 170, 102, 0.1),
+      0 4px 12px rgba(0, 0, 0, 0.04);
+    min-height: 520px;
+  }
+  .cover-art {
+    position: absolute; inset: 0; pointer-events: none;
+    z-index: 1; overflow: hidden;
+  }
+  .cover-content {
+    position: relative; z-index: 2;
+    padding: 70px 50px 60px;
+  }
+  .cover-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    background: var(--primary);
+    color: #fff;
+    border-radius: 24px;
+    font-size: 13px; font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 16px rgba(45, 170, 102, 0.35);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  }
+  .cover-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #fff;
+  }
+  .cover h1 {
+    font-size: 56px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    color: #1B3A2A;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  }
+  .cover h1 .accent {
+    color: transparent;
+    background: linear-gradient(135deg, #2DAA66 0%, #1B5E3F 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    position: relative;
+  }
+  .cover .title-glow {
+    display: flex; justify-content: center;
+    margin: 0 auto 30px;
+    position: relative;
+    height: 3px;
+    width: 320px;
+  }
+  .cover .title-glow::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 320px; height: 3px;
+    background: linear-gradient(90deg, transparent 0%, #2DAA66 50%, transparent 100%);
+    border-radius: 2px;
+  }
+  .cover .title-glow::after {
+    content: '';
+    position: absolute;
+    top: -3px; left: 50%;
+    transform: translateX(-50%);
+    width: 120px; height: 12px;
+    background: radial-gradient(ellipse, rgba(45, 170, 102, 0.6) 0%, transparent 70%);
+    filter: blur(4px);
+  }
+  .cover .subtitle {
+    font-size: 15px;
+    color: #4B5563;
+    letter-spacing: 1.5px;
+    margin-bottom: 50px;
+    font-weight: 400;
+  }
+  .cover .meta {
+    display: flex; justify-content: center; gap: 0; flex-wrap: wrap;
+    border-top: 1px solid rgba(45, 170, 102, 0.12);
+    border-bottom: 1px solid rgba(45, 170, 102, 0.12);
+    padding: 24px 0;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .cover .meta-item {
+    text-align: center; padding: 0 40px;
+    border-right: 1px solid rgba(45, 170, 102, 0.12);
+  }
+  .cover .meta-item:last-child { border-right: none; }
+  .cover .meta-label {
+    font-size: 11px;
+    color: #6B7280;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .cover .meta-value {
+    font-size: 16px;
+    color: #1B3A2A;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  .cover .tagline {
+    margin-top: 24px;
+    font-size: 12px;
+    color: #2DAA66;
+    letter-spacing: 3px;
+    font-weight: 600;
+  }
+
+  /* Container */
+  .container { max-width: 960px; margin: 0 auto; }
+
+  /* Sections */
+  .section {
+    margin-bottom: 32px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-soft);
+    border-radius: 18px;
+    padding: 32px 36px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  }
+  .section-title {
+    font-size: 22px; font-weight: 700; margin-bottom: 4px;
+    color: var(--text);
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-title .num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 32px; height: 32px; border-radius: 8px;
+    background: var(--primary); color: #fff;
+    font-size: 14px; font-weight: 700; flex-shrink: 0;
+  }
+  .section-subtitle { font-size: 13px; color: var(--text-secondary); margin-bottom: 22px; margin-left: 44px; }
+
+  h3 {
+    font-size: 16px; font-weight: 700; margin: 22px 0 8px;
+    color: var(--text);
+    display: flex; align-items: center; gap: 8px;
+  }
+  h3::before {
+    content: '';
+    width: 3px; height: 14px;
+    background: var(--primary);
+    border-radius: 2px;
+  }
+  h3:first-child { margin-top: 0; }
+  h4 { font-size: 14px; font-weight: 600; margin: 14px 0 4px; color: var(--text); }
+
+  p { margin-bottom: 8px; text-align: justify; font-size: 14px; color: #374151; }
+  strong { color: var(--text); font-weight: 600; }
+  ul, ol { padding-left: 20px; margin-bottom: 12px; font-size: 14px; color: #374151; }
+  li { margin-bottom: 4px; }
+  li::marker { color: var(--primary); }
+
+  /* Tags */
+  .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+  .tag { padding: 3px 12px; background: var(--primary-light); border-radius: 12px; font-size: 12px; color: var(--primary-dark); font-weight: 500; }
+
+  /* KPI Grid */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px; margin: 18px 0;
+  }
+  @media (max-width: 768px) { .kpi-grid { grid-template-columns: repeat(2, 1fr); } }
+  .kpi-card {
+    background: var(--primary-light);
+    border: 1px solid rgba(45, 170, 102, 0.15);
+    border-radius: 14px;
+    padding: 22px 14px; text-align: center;
+  }
+  .kpi-value {
+    font-size: 26px; font-weight: 700;
+    color: var(--primary-dark);
+    line-height: 1.2;
+  }
+  .kpi-label { font-size: 12px; color: var(--text-secondary); margin-top: 6px; }
+  .source-line {
+    margin-top: 10px;
+    font-size: 11px;
+    color: var(--text-muted);
+    padding: 8px 12px;
+    background: #FAFBFA;
+    border-left: 2px solid var(--primary);
+    border-radius: 4px;
+  }
+
+  /* Card Grid */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px; margin: 14px 0;
+  }
+  .card {
+    background: #FAFBFA;
+    border: 1px solid var(--border-soft);
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.3s;
+  }
+  .card:hover {
+    border-color: rgba(45, 170, 102, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(45, 170, 102, 0.08);
+  }
+  .card h4 { font-size: 15px; font-weight: 700; margin: 0 0 6px; color: var(--text); display: flex; align-items: center; justify-content: space-between; }
+  .card .card-tag {
+    display: inline-block; padding: 2px 10px; border-radius: 10px;
+    font-size: 11px; font-weight: 500; margin-bottom: 8px;
+  }
+  .card .card-tag.type1 { background: var(--blue-light); color: var(--blue); }
+  .card .card-tag.type2 { background: var(--purple-light); color: var(--purple); }
+  .card .card-tag.type3 { background: var(--orange-light); color: var(--orange); }
+  .card .card-tag.type4 { background: var(--yellow-light); color: #B8860B; }
+  .card .card-tag.type5 { background: var(--green-light); color: var(--primary-dark); }
+  .card p { font-size: 13px; color: var(--text-secondary); margin: 4px 0; line-height: 1.6; }
+  .card .good { color: var(--primary-dark); font-size: 13px; font-weight: 500; }
+  .card .bad { color: var(--red); font-size: 13px; font-weight: 500; }
+  .card .label {
+    color: var(--text);
+    font-size: 13.5px;
+    font-weight: 600;
+    line-height: 1.7;
+  }
+  .card .label strong {
+    color: var(--primary-dark);
+    font-weight: 800;
+    font-size: 14px;
+    display: inline-block;
+    margin-right: 2px;
+  }
+
+  /* Tables */
+  .table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    margin: 14px 0;
+    border-radius: 10px;
+    border: 1px solid var(--border-soft);
+  }
+  .styled-table {
+    width: 100%;
+    min-width: 880px;
+    border-collapse: collapse;
+    font-size: 12.5px;
+  }
+  .styled-table th {
+    background: #FAFBFA;
+    padding: 10px 10px;
+    text-align: center;
+    font-weight: 600;
+    color: var(--text);
+    border-bottom: 1px solid var(--border-soft);
+    white-space: nowrap;
+    font-size: 12px;
+  }
+  .styled-table th.row-header {
+    text-align: left;
+    background: #FFFFFF;
+    position: sticky; left: 0; z-index: 1;
+  }
+  .styled-table td {
+    padding: 9px 10px;
+    border-bottom: 1px solid #F3F4F6;
+    text-align: center;
+    color: #4B5563;
+  }
+  .styled-table td.row-header {
+    text-align: left;
+    font-weight: 600;
+    color: var(--text);
+    background: #FFFFFF;
+    position: sticky; left: 0; z-index: 1;
+  }
+  .styled-table td.highlight {
+    background: var(--primary-light);
+    color: var(--primary-dark);
+    font-weight: 700;
+  }
+  .styled-table tr:last-child td { border-bottom: none; }
+  .styled-table tr:hover td { background: #FAFBFA; }
+  .styled-table tr:hover td.row-header { background: #FFFFFF; }
+  .styled-table tr:hover td.highlight { background: #D4F0DF; }
+
+  /* Star inline */
+  .star { color: var(--yellow); font-size: 13px; letter-spacing: 1px; }
+  .star-dim { color: #E5E7EB; }
+
+  /* Highlight Box */
+  .highlight-box {
+    background: var(--primary-light);
+    border: 1px solid rgba(45, 170, 102, 0.2);
+    border-radius: 12px; padding: 16px 20px; margin: 14px 0;
+  }
+  .highlight-box p { margin: 0; font-size: 14px; color: var(--text); }
+  .highlight-box.warn {
+    background: var(--orange-light);
+    border-color: rgba(243, 156, 66, 0.25);
+  }
+  .highlight-box.warn p { color: #8B5A1B; }
+  .highlight-box.good {
+    background: #E8F5ED;
+    border-color: rgba(45, 170, 102, 0.3);
+  }
+  .highlight-box.dark {
+    background: #1F2937;
+    border-color: transparent;
+  }
+  .highlight-box.dark p { color: #E5E7EB; }
+
+  /* Pain Grid */
+  .pain-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px; margin: 18px 0;
+  }
+  @media (max-width: 768px) { .pain-grid { grid-template-columns: 1fr; } }
+  .pain-card {
+    background: var(--red-light);
+    border: 1px solid rgba(232, 93, 93, 0.15);
+    border-radius: 12px;
+    padding: 22px 22px;
+  }
+  .pain-card .pain-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--red);
+    background: rgba(232, 93, 93, 0.1);
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-right: 8px;
+    letter-spacing: 1px;
+    vertical-align: middle;
+  }
+  .pain-card h4 { font-size: 15px; margin: 0 0 10px; color: var(--text); font-weight: 700; line-height: 1.4; }
+  .pain-card p { font-size: 13px; color: var(--text-secondary); text-align: left; line-height: 1.65; }
+  .pain-card p strong { color: var(--red); font-weight: 600; }
+
+  /* Strategy cards */
+  .strategy-compare {
+    display: grid; gap: 10px; margin: 14px 0;
+  }
+  .strategy-row {
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 16px; border-radius: 10px;
+    background: #FAFBFA; border: 1px solid var(--border-soft);
+  }
+  .strategy-row .vs {
+    background: var(--primary); color: #fff;
+    padding: 3px 10px; border-radius: 6px;
+    font-size: 12px; font-weight: 600; white-space: nowrap;
+  }
+  .strategy-row .opponent { color: var(--text-secondary); font-size: 12px; white-space: nowrap; }
+  .strategy-row .diff { font-size: 13px; color: var(--text); flex: 1; }
+
+  /* Big number highlight */
+  .num-big {
+    font-size: 18px; font-weight: 700;
+    color: var(--primary-dark);
+  }
+
+  /* Print */
+  @media print {
+    body { background: white; }
+    .section, .card, .pain-card, .kpi-card { box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ====== COVER ====== -->
+<div class="cover">
+  <!-- 科技感装饰背景 -->
+  <svg class="cover-art" viewBox="0 0 1000 520" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="orb1" cx="0.5" cy="0.5" r="0.5">
+        <stop offset="0%" stop-color="#2DAA66" stop-opacity="0.12"/>
+        <stop offset="100%" stop-color="#2DAA66" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="orb2" cx="0.5" cy="0.5" r="0.5">
+        <stop offset="0%" stop-color="#4ECDC4" stop-opacity="0.10"/>
+        <stop offset="100%" stop-color="#4ECDC4" stop-opacity="0"/>
+      </radialGradient>
+      <pattern id="grid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+        <circle cx="1" cy="1" r="1.2" fill="#2DAA66" opacity="0.15"/>
+      </pattern>
+    </defs>
+
+    <!-- 点阵网格 -->
+    <rect x="0" y="0" width="1000" height="520" fill="url(#grid)"/>
+
+    <!-- 浮动光晕球（更轻更亮） -->
+    <circle cx="120" cy="120" r="180" fill="url(#orb1)"/>
+    <circle cx="900" cy="380" r="220" fill="url(#orb2)"/>
+    <circle cx="780" cy="100" r="120" fill="url(#orb1)"/>
+
+    <!-- 装饰几何线条（高亮） -->
+    <line x1="60" y1="60" x2="120" y2="60" stroke="#2DAA66" stroke-width="2" opacity="0.85"/>
+    <line x1="60" y1="60" x2="60" y2="120" stroke="#2DAA66" stroke-width="2" opacity="0.85"/>
+
+    <line x1="940" y1="460" x2="880" y2="460" stroke="#2DAA66" stroke-width="2" opacity="0.85"/>
+    <line x1="940" y1="460" x2="940" y2="400" stroke="#2DAA66" stroke-width="2" opacity="0.85"/>
+
+    <!-- 角落小方块（高亮） -->
+    <rect x="80" y="440" width="8" height="8" fill="#2DAA66" opacity="1"/>
+    <rect x="94" y="440" width="8" height="8" fill="#2DAA66" opacity="0.65"/>
+    <rect x="80" y="454" width="8" height="8" fill="#2DAA66" opacity="0.65"/>
+
+    <rect x="906" y="78" width="8" height="8" fill="#2DAA66" opacity="1"/>
+    <rect x="920" y="78" width="8" height="8" fill="#2DAA66" opacity="0.65"/>
+    <rect x="906" y="92" width="8" height="8" fill="#2DAA66" opacity="0.65"/>
+
+    <!-- 浮动数据点（高亮） -->
+    <circle cx="180" cy="380" r="4" fill="#2DAA66" opacity="0.85"/>
+    <circle cx="220" cy="420" r="3" fill="#2DAA66" opacity="0.7"/>
+    <circle cx="820" cy="180" r="4" fill="#2DAA66" opacity="0.85"/>
+    <circle cx="780" cy="220" r="3" fill="#2DAA66" opacity="0.7"/>
+    <circle cx="150" cy="240" r="3" fill="#2DAA66" opacity="0.7"/>
+    <circle cx="860" cy="320" r="3" fill="#2DAA66" opacity="0.7"/>
+    <circle cx="240" cy="100" r="3" fill="#2DAA66" opacity="0.6"/>
+    <circle cx="730" cy="450" r="3" fill="#2DAA66" opacity="0.6"/>
+
+    <!-- 细虚线（高亮） -->
+    <line x1="100" y1="200" x2="160" y2="200" stroke="#2DAA66" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.7"/>
+    <line x1="840" y1="350" x2="900" y2="350" stroke="#2DAA66" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.7"/>
+  </svg>
+
+  <div class="cover-content">
+    <div class="cover-badge">大学生职业规划产品 · COMPETITIVE ANALYSIS</div>
+    <h1>产品<span class="accent">竞品分析</span></h1>
+    <div class="title-glow"></div>
+    <p class="subtitle">覆盖 12 款产品  ·  自有调研 + 行业资料  ·  为自研产品提供差异化依据</p>
+    <div class="meta">
+      <div class="meta-item">
+        <div class="meta-label">Team</div>
+        <div class="meta-value">蝶飞梧桐</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Date</div>
+        <div class="meta-value">2026 年 7 月</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Scope</div>
+        <div class="meta-value">12 款竞品 / 5 大类别</div>
+      </div>
+    </div>
+    <div class="tagline">— 看清自己，看清现实，看清前路 —</div>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- ====== 一、分析概述 ====== -->
+<div class="section">
+  <div class="section-title"><span class="num">一</span> 分析概述</div>
+
+  <h3>1.1 分析背景</h3>
+  <p>2026 年高校毕业生规模持续攀升，大学生普遍存在职业认知模糊、自我定位不准、发展路径迷茫等核心问题。全球职业发展软件市场 2025 年规模约 <strong>18.8 亿美元</strong>，预计 2032 年达 <strong>30.6 亿美元</strong>；国内求职教育平台市场年复合增长率约 10.3%。更具标志性的是——<strong>79.1%</strong> 的 2025 届应届生已采用 AI 工具辅助求职，AI 正在从"加分项"变成"入场券"。</p>
+  <p>与此同时，大学生职业规划需求已从单一求职工具转向<strong>全周期生涯成长</strong>——覆盖大一职业启蒙、大二能力探索、大三实习规划、大四求职落地。</p>
+
+  <h3>1.2 分析目的</h3>
+  <p>深度拆解市场主流大学生职业规划类产品，明确各家定位、功能、用户群、优势短板，挖掘市场空白与未满足需求，为自研产品的功能设计、差异化定位提供依据。</p>
+
+  <h3>1.3 竞品选取与分类</h3>
+  <p>选取市场渗透率高、用户基数大、功能覆盖核心场景的 <strong>12 款产品</strong>，分为五类：</p>
+  <table class="styled-table" style="min-width: auto;">
+    <thead>
+      <tr><th>类型</th><th style="text-align:left">选取产品</th><th style="text-align:left">选取理由</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><span class="tag">综合全流程型</span></td><td style="text-align:left">求职精灵、职比特、北森生涯</td><td style="text-align:left">覆盖面最广，代表行业综合水平</td></tr>
+      <tr><td><span class="tag">垂直工具专项型</span></td><td style="text-align:left">超级简历、牛客网、实习僧</td><td style="text-align:left">单项能力突出，代表细分赛道天花板</td></tr>
+      <tr><td><span class="tag">考培巨头转型型</span></td><td style="text-align:left">中公 AI 就业、粉笔精品就业班</td><td style="text-align:left">体量最大、转型最激进</td></tr>
+      <tr><td><span class="tag">特定人群精准型</span></td><td style="text-align:left">互联派、前途问鹿</td><td style="text-align:left">留学生 / 高中生到大学生全链条</td></tr>
+      <tr><td><span class="tag">高校自研 / 官方型</span></td><td style="text-align:left">山小芽、学信网学职平台</td><td style="text-align:left">权威性最强，但体验与智能化不足</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ====== 二、行业市场现状 ====== -->
+<div class="section">
+  <div class="section-title"><span class="num">二</span> 行业市场现状</div>
+
+  <h3>2.1 宏观数据</h3>
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-value">1270 万</div>
+      <div class="kpi-label">2026 届高校毕业生</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-value">64.8%</div>
+      <div class="kpi-label">因信息差难做职业规划</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-value">36.2%</div>
+      <div class="kpi-label">未获 Offer 者"太迷茫"</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-value">79.1%</div>
+      <div class="kpi-label">应届生使用 AI 求职</div>
+    </div>
+  </div>
+  <p>2026 届高校毕业生预计达 <strong>1270 万</strong>（新华网），就业规模继续扩大，但学生面临的不仅是岗位竞争，更是<strong>职业认知、能力准备与市场需求之间的错配</strong>。智联招聘《2024 大学生就业力调研报告》显示：未获得 Offer 的毕业生中，<strong>36.2%</strong> 自认"太迷茫"，27.4% 认为自己掌握技能较少；已获 Offer 者则更多归因于实习和社会实践经历。中国青年报 2022 调查显示，<strong>64.8%</strong> 的大学生因不了解市场、存在信息差而难以制定职业规划，55.4% 不了解专业对应的职业领域。近期高校就业调研也指出，现有就业指导仍存在<strong>系统性、针对性不足及结果反馈缺失</strong>等问题。</p>
+  <p>更具标志性的是——<strong>79.1%</strong> 的 2025 届应届生已采用 AI 工具（AI 简历 / AI 模拟面试 / AI 岗位匹配）辅助求职，AI 正在从"加分项"变成"入场券"。全球职业发展软件市场 2025 年规模约 <strong>18.8 亿美元</strong>，预计 2032 年达 30.6 亿美元；国内教育求职 APP 月活 <strong>4.71 亿</strong>，同比增长 5.1%。</p>
+  <div class="source-line">数据来源：新华网 · 智联招聘《2024 大学生就业力调研报告》· 中国青年报 2022 调查 · 艾瑞咨询</div>
+
+  <h3>2.2 市场格局判断</h3>
+  <div class="highlight-box">
+    <p>大学生职业规划市场当前处于 <strong>"百花齐放、诸侯割据"</strong> 阶段，尚未出现绝对领先的头部品牌。</p>
+  </div>
+  <ul>
+    <li><strong>综合型</strong>：功能全但深度不足</li>
+    <li><strong>垂直型</strong>：单项突出但场景单一</li>
+    <li><strong>官方型</strong>：资源权威但体验僵化</li>
+    <li><strong>考培型</strong>：以规划为导流手段，本质卖课</li>
+  </ul>
+  <p>行业竞争趋势：从单一课程售卖转向 <strong>"测评 → 规划 → 学习 → 简历 → 面试 → 岗位匹配"</strong> 的服务闭环竞争。</p>
+</div>
+
+<!-- ====== 三、核心竞品逐家拆解 ====== -->
+<div class="section">
+  <div class="section-title"><span class="num">三</span> 核心竞品逐家拆解</div>
+  <div class="section-subtitle">12 款产品 × 5 大类别</div>
+
+  <h3>3.1 综合全流程型</h3>
+
+  <div class="card-grid">
+    <div class="card">
+      <span class="card-tag type1">综合全流程型</span>
+      <h4>求职精灵</h4>
+      <p class="label"><strong><strong>定位：</strong></strong>一站式职业规划 + 求职全流程平台，适配全专业、全求职方向。</p>
+      <p class="label"><strong><strong>核心：</strong></strong>三维测评 → 全周期分层规划 → AI 简历/岗位匹配/面试模拟 → 资讯资源。</p>
+      <p class="good">✓ 功能覆盖最全面，打通"认知-规划-提升-落地"闭环</p>
+      <p class="bad">✗ 垂直岗位深耕不足；个性化动态调整能力欠缺</p>
+    </div>
+    <div class="card">
+      <span class="card-tag type1">综合全流程型</span>
+      <h4>职比特 CAREER BYTE</h4>
+      <p class="label"><strong>定位：</strong>全链路职业规划平台，覆盖应届生/职场转型/中高管/海归，偏中高端。</p>
+      <p class="label"><strong>核心：</strong>售前 1v1 诊断 + 24 类测评 + 1000+ 顾问入驻 + 10000+ 猎头渠道。</p>
+      <p class="good">✓ 服务透明度行业最高；20+ 发明专利 + 51 项软著</p>
+      <p class="bad">✗ 定位偏中高端、价格门槛高；品牌知名度相比传统平台有差距</p>
+    </div>
+    <div class="card">
+      <span class="card-tag type1">综合全流程型</span>
+      <h4>北森生涯教育平台</h4>
+      <p class="label"><strong>定位：</strong>教育部与北森联合研发，已服务 1860+ 高校。2025 年接入 DeepSeek。</p>
+      <p class="label"><strong>核心：</strong>六维测评 → 职业探索 → 决策平衡单 → 生涯计划书，含 16 门课程。</p>
+      <p class="good">✓ 常模数据量行业最大；1860+ 高校渠道垄断，获客成本为零</p>
+      <p class="bad">✗ 测评一次性无持续跟踪；脱离现实约束；无前人案例参照；岗位推荐弱</p>
+    </div>
+  </div>
+
+  <h3>3.2 考培巨头转型型</h3>
+
+  <div class="card-grid">
+    <div class="card">
+      <span class="card-tag type2">考培巨头转型型</span>
+      <h4>中公教育 AI 就业</h4>
+      <p class="label"><strong>定位：</strong>2024.09 从"公考培训"升级为"就业与再就业服务商"。2025.07 推出 AI 硬件学习机（3999~26200 元）。</p>
+      <p class="label"><strong>核心：</strong>AI 测评 → AI 选岗 → 9 大类考试课程（2 万+ 学时）→ 求职。配套 "1+1+N" 服务体系。</p>
+      <p class="good">✓ 最早喊出"全周期"概念；硬件形态差异化；百万上岸数据支撑</p>
+      <p class="bad">✗ 本质卖课——规划是引流钩子；只覆盖体制内；无客观约束、无前车之鉴；定价筛掉大量学生</p>
+    </div>
+    <div class="card">
+      <span class="card-tag type2">考培巨头转型型</span>
+      <h4>粉笔精品就业班</h4>
+      <p class="label"><strong>定位：</strong>2025 年从公考培训扩展至综合性就业服务。CEO 表示将深入高校帮学生提前做规划。</p>
+      <p class="label"><strong>核心：</strong>规划师 1v1 → AI 选岗系统（每日抓取招聘信息，12 类招录项目）→ 不限次跨岗位报考。</p>
+      <p class="good">✓ OMO 模式成熟，人工兜底体验；AI 选岗实时性强</p>
+      <p class="bad">✗ 服务对象是已决定考公的人，不帮你判断要不要考；人工服务质量方差大</p>
+    </div>
+  </div>
+
+  <h3>3.3 垂直工具专项型</h3>
+
+  <div class="card-grid">
+    <div class="card">
+      <span class="card-tag type3">垂直工具专项型</span>
+      <h4>超级简历</h4>
+      <p class="label"><strong>定位：</strong>垂直简历工具头部产品，以高颜值、高适配输出为核心竞争力。</p>
+      <p class="label"><strong>核心：</strong>海量模板 + AI 纠错与内容优化 + 关键词匹配 + 一键排版 + 适配度评分。</p>
+      <p class="good">✓ 排版美观适配各大企业系统；操作轻量上手快</p>
+      <p class="bad">✗ 无职业规划功能——仅聚焦简历单一场景；纯工具无长期服务</p>
+    </div>
+    <div class="card">
+      <span class="card-tag type3">垂直工具专项型</span>
+      <h4>牛客网</h4>
+      <p class="label"><strong>定位：</strong>互联网技术岗专属求职平台。5000 万美元融资，覆盖 1000 万+ 校招用户。</p>
+      <p class="label"><strong>核心：</strong>题库刷题 + 企业笔试真题 + 面试经验社区 + 内推 + 技术课程 + 校招辅导。</p>
+      <p class="good">✓ 社区粘性行业最强，UGC 自循环；技术岗资源壁垒极高</p>
+      <p class="bad">✗ 用户圈层极度局限（仅技术岗）；无通用职业规划</p>
+    </div>
+    <div class="card">
+      <span class="card-tag type3">垂直工具专项型</span>
+      <h4>实习僧</h4>
+      <p class="label"><strong>定位：</strong>大学生实习校招平台，实习招聘赛道第一。用户两年留存率 30%。</p>
+      <p class="label"><strong>核心：</strong>海量实习/校招 + 职业测评 + 行业课程 + AI 简历诊断 + 模拟面试。</p>
+      <p class="good">✓ 实习赛道认知度高；从"白纸期"开始跟踪用户成长数据</p>
+      <p class="bad">✗ 规划深度不足，停留在岗位匹配；非实习阶段服务弱</p>
+    </div>
+  </div>
+
+  <h3>3.4 特定人群精准型</h3>
+
+  <div class="card-grid">
+    <div class="card">
+      <span class="card-tag type4">特定人群精准型</span>
+      <h4>互联派</h4>
+      <p class="label"><strong>定位：</strong>留学生回国求职辅导平台。累计 25000+ Offer，服务 600 万大学生。</p>
+      <p class="label"><strong>核心：</strong>Momo AI 工作台 + 30 秒极速网申插件（覆盖 95% 企业）+ 2500+ 名企导师。</p>
+      <p class="good">✓ AI 技术布局领先；2025 年成为百度智能云生态合作伙伴</p>
+      <p class="bad">✗ 聚焦留学生，国内普通大学生覆盖有限；客单价高（5000~30000 元）</p>
+    </div>
+    <div class="card">
+      <span class="card-tag type4">特定人群精准型</span>
+      <h4>前途问鹿</h4>
+      <p class="label"><strong>定位：</strong>会员制生涯发展平台，覆盖 15~24 岁从高考到就业。基于北森 MARK 模型 + DeepSeek。</p>
+      <p class="label"><strong>核心：</strong>高考 → 大学规划 → 考研 → 留学 → 职业规划，解答"我是谁""去哪里""怎么去"。</p>
+      <p class="good">✓ 生命周期覆盖最长（高中到就业），产品理念超前</p>
+      <p class="bad">✗ 覆盖面广但各模块深度不足；品牌知名度低</p>
+    </div>
+  </div>
+
+  <h3>3.5 高校自研 / 官方型</h3>
+
+  <div class="card-grid">
+    <div class="card">
+      <span class="card-tag type5">高校自研型</span>
+      <h4>山小芽（山东大学）</h4>
+      <p class="label"><strong>定位：</strong>2024 年自研 AI 生涯发展助手，列为新生必修课。覆盖 17000+ 学生，2700+ 专家。</p>
+      <p class="label"><strong>核心：</strong>学生提问 → AI 分析 → 匹配专家/朋辈 → 1v1 咨询 → AI 生成生涯档案 → 精准推送资源。</p>
+      <p class="good">✓ "人机协同"务实——AI 帮人找对的人；朋辈导师解决"学生更信学长学姐"痛点</p>
+      <p class="bad">✗ 高度依赖校内生态，出了山大不可复制；无商业闭环；无结构化推演算法</p>
+    </div>
+    <div class="card">
+      <span class="card-tag type5">官方型</span>
+      <h4>学信网学职平台</h4>
+      <p class="label"><strong>定位：</strong>教育部学生服务与素质发展中心主办，完全免费，面向全国大学生。</p>
+      <p class="label"><strong>核心：</strong>专业百科（830+ 专业）+ 职业信息库（400+ 案例）+ 职业人物访谈 + 就业指导课（230+ 期）。</p>
+      <p class="good">✓ 免费 + 权威背书，触达面最广；职业案例有真实感</p>
+      <p class="bad">✗ 功能停留在信息展示——看了没有下一步；无路径推演、无任务跟踪、无个性化推荐</p>
+    </div>
+  </div>
+</div>
+
+<!-- ====== 四、多维横向对比 ====== -->
+<div class="section">
+  <div class="section-title"><span class="num">四</span> 多维横向对比</div>
+
+  <h3>4.1 功能维度星级评分</h3>
+  <div class="table-wrap">
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th class="row-header" style="width: 90px;">功能维度</th>
+          <th>求职精灵</th><th>职比特</th><th>北森</th><th>中公AI</th><th>粉笔</th>
+          <th>超级简历</th><th>牛客网</th><th>实习僧</th><th>互联派</th><th>前途问鹿</th>
+          <th>山小芽</th><th>学职平台</th>
+          <th class="highlight" style="background: #D4F0DF;">我们的方案</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="row-header">职业测评</td>
+          <td class="star">★★★★★</td><td class="star">★★★★★</td><td class="star">★★★★★</td>
+          <td class="star">★★★★</td><td class="star">★★★★</td><td class="star">★★</td><td class="star">★</td>
+          <td class="star">★★★</td><td class="star">★★</td><td class="star">★★★★</td>
+          <td class="star">★★★★★</td><td class="star">★★★</td>
+          <td class="highlight">★★★★★</td>
+        </tr>
+        <tr>
+          <td class="row-header">职业规划</td>
+          <td class="star">★★★★★</td><td class="star">★★★★★</td><td class="star">★★★★</td>
+          <td class="star">★★★</td><td class="star">★★★</td><td class="star">★</td><td class="star">★</td>
+          <td class="star">★★★</td><td class="star">★★</td><td class="star">★★★★</td>
+          <td class="star">★★★★</td><td class="star">★★</td>
+          <td class="highlight">★★★★★</td>
+        </tr>
+        <tr>
+          <td class="row-header">简历优化</td>
+          <td class="star">★★★★</td><td class="star">★★★★</td><td class="star">★</td>
+          <td class="star">★★</td><td class="star">★★</td><td class="star">★★★★★</td><td class="star">★★★</td>
+          <td class="star">★★★★</td><td class="star">★★★★★</td><td class="star">★★★</td>
+          <td class="star">★</td><td class="star">★</td>
+          <td class="highlight">★★★★★</td>
+        </tr>
+        <tr>
+          <td class="row-header">面试辅导</td>
+          <td class="star">★★★★</td><td class="star">★★★★★</td><td class="star">★</td>
+          <td class="star">★★★★</td><td class="star">★★★</td><td class="star">★</td><td class="star">★★</td>
+          <td class="star">★★★★</td><td class="star">★★★★★</td><td class="star">★★</td>
+          <td class="star">★★</td><td class="star">★</td>
+          <td class="highlight">★★★★★</td>
+        </tr>
+        <tr>
+          <td class="row-header">岗位推荐</td>
+          <td class="star">★★★★</td><td class="star">★★★★★</td><td class="star">★★</td>
+          <td class="star">★★★</td><td class="star">★★★</td><td class="star">★★</td><td class="star">★★★★</td>
+          <td class="star">★★★★★</td><td class="star">★★★★</td><td class="star">★★★</td>
+          <td class="star">★★</td><td class="star">★</td>
+          <td class="highlight">★★★★★</td>
+        </tr>
+        <tr>
+          <td class="row-header">AI 能力</td>
+          <td class="star">★★★★</td><td class="star">★★★</td><td class="star">★★★</td>
+          <td class="star">★★★★</td><td class="star">★★★</td><td class="star">★★★★</td><td class="star">★★★</td>
+          <td class="star">★★★★</td><td class="star">★★★★★</td><td class="star">★★★★</td>
+          <td class="star">★★★</td><td class="star">★</td>
+          <td class="highlight">★★★★★</td>
+        </tr>
+        <tr>
+          <td class="row-header">社区/内容</td>
+          <td class="star">★★★</td><td class="star">★★</td><td class="star">★★★★</td>
+          <td class="star">★★★</td><td class="star">★★★</td><td class="star">★★</td><td class="star">★★★★★</td>
+          <td class="star">★★★</td><td class="star">★★★</td><td class="star">★★★</td>
+          <td class="star">★★★★</td><td class="star">★★★</td>
+          <td class="highlight">★★★★★</td>
+        </tr>
+        <tr>
+          <td class="row-header">高校渠道</td>
+          <td class="star">★★</td><td class="star">★★</td><td class="star">★★★★★</td>
+          <td class="star">★★★</td><td class="star">★★★</td><td class="star">★</td><td class="star">★★★</td>
+          <td class="star">★★★</td><td class="star">★★</td><td class="star">★★</td>
+          <td class="star">★★★★★</td><td class="star">★★★★★</td>
+          <td class="highlight">★★★★★</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>4.2 关键差异化维度对比</h3>
+  <div class="table-wrap">
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th class="row-header">维度</th>
+          <th>求职精灵</th><th>职比特</th><th>北森</th><th>中公AI</th><th>粉笔</th>
+          <th>牛客网</th><th>实习僧</th><th>互联派</th><th>山小芽</th><th>学职平台</th>
+          <th class="highlight" style="background: #D4F0DF;">我们的方案</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="row-header">测评维度</td>
+          <td>3</td><td>24 类</td><td>6 维</td><td>基础</td><td>人工</td>
+          <td>弱</td><td>4 (零散)</td><td>3</td><td>基础+对话</td><td>弱</td>
+          <td class="highlight"><b>6 (含家庭+生理)</b></td>
+        </tr>
+        <tr>
+          <td class="row-header">客观约束筛查</td>
+          <td>✗</td><td>✗</td><td>✗</td><td>✗</td><td>✗</td>
+          <td>✗</td><td>✗</td><td>✗</td><td>✗</td><td>✗</td>
+          <td class="highlight"><b>✓ 有</b></td>
+        </tr>
+        <tr>
+          <td class="row-header">规划目的选择</td>
+          <td>✗</td><td>✗</td><td>✗</td><td>✗</td><td>✗</td>
+          <td>✗</td><td>✗</td><td>✗</td><td>✗</td><td>✗</td>
+          <td class="highlight"><b>✓ 有</b></td>
+        </tr>
+        <tr>
+          <td class="row-header">前人案例参照</td>
+          <td>✗</td><td>✗</td><td>✗</td><td>✗</td><td>✗</td>
+          <td>✗</td><td>✗</td><td>✗</td><td>✗</td><td>✗</td>
+          <td class="highlight"><b>✓ 正反案例回溯</b></td>
+        </tr>
+        <tr>
+          <td class="row-header">生理数据</td>
+          <td>✗</td><td>✗</td><td>✗</td><td>✗</td><td>✗</td>
+          <td>✗</td><td>✗</td><td>✗</td><td>✗</td><td>✗</td>
+          <td class="highlight"><b>✓ 可穿戴监测</b></td>
+        </tr>
+        <tr>
+          <td class="row-header">持续跟踪</td>
+          <td>弱</td><td>中 (顾问)</td><td>✗</td><td>备考跟踪</td><td>人工</td>
+          <td>✗</td><td>弱</td><td>✗</td><td>咨询记录</td><td>✗</td>
+          <td class="highlight"><b>多维度检测</b></td>
+        </tr>
+        <tr>
+          <td class="row-header">规划定位</td>
+          <td>目的</td><td>目的</td><td>目的</td><td>手段(卖课)</td><td>手段</td>
+          <td>手段</td><td>手段</td><td>手段</td><td>目的</td><td>目的</td>
+          <td class="highlight"><b>全流程</b></td>
+        </tr>
+        <tr>
+          <td class="row-header">核心短板</td>
+          <td>垂直不足</td><td>价格高</td><td>脱离现实</td><td>规划=卖课</td><td>只帮考试</td>
+          <td>圈层窄</td><td>规划浅</td><td>受众窄</td><td>不可复制</td><td>只展示</td>
+          <td class="highlight">—</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ====== 五、市场核心痛点与空白机会 ====== -->
+<div class="section">
+  <div class="section-title"><span class="num">五</span> 市场核心痛点与空白机会</div>
+
+  <h3>5.1 行业通用痛点</h3>
+  <div class="pain-grid">
+    <div class="pain-card"><h4><span class="pain-tag">痛点一</span> 功能割裂严重</h4><p>市场产品要么只做规划、要么只做工具、要么只做备考——没有任何产品实现 <strong>"通用规划 + 多赛道推演 + 全周期任务跟进"</strong> 一体化，学生需切换多个平台，<strong>体验碎片化</strong>。</p></div>
+    <div class="pain-card"><h4><span class="pain-tag">痛点二</span> 规划同质化且脱离现实</h4><p>多数产品方案为模板化输出，未将家庭经济、父母职业资源、地域限制、身体机能等 <strong>"客观约束"</strong> 纳入模型，<strong>落地性极差</strong>。</p></div>
+    <div class="pain-card"><h4><span class="pain-tag">痛点三</span> 重求职轻成长，无前车之鉴</h4><p><strong>聚焦大四求职，忽略大一至大三的启蒙和试错</strong>。没有任何产品利用真实案例做 <strong>相似人群路径回溯</strong>——学生最缺的不是"你适合什么"，而是"跟你类似的人走过哪些弯路"。</p></div>
+    <div class="pain-card"><h4><span class="pain-tag">痛点四</span> 规划目的被统一预设</h4><p>所有产品默认学生以 <strong>"自我实现"</strong> 为单一目标，<strong>忽略现实中动机的高度分化</strong>——有人为生存、有人为家庭、有人为体面、有人为热爱。</p></div>
+  </div>
+
+  <h3>5.2 差异化市场机会</h3>
+  <div class="card-grid" style="grid-template-columns: repeat(2, 1fr);">
+    <div class="card" style="background: var(--green-light); border-color: rgba(45,170,102,0.25);">
+      <h4>机会一：目的先行 + 客观约束筛查</h4>
+      <p>先让用户定义规划目的，再将家庭条件、身体机能等"硬件"作为可行性筛选第一层。<strong style="color: var(--primary-dark);">所有竞品在此维度为零。</strong></p>
+    </div>
+    <div class="card" style="background: var(--green-light); border-color: rgba(45,170,102,0.25);">
+      <h4>机会二：可穿戴生理数据 + 应激事件归因</h4>
+      <p>将抗压能力从用户自述升级为传感器持续采集 + 因果归因，识别不适合的岗位类型并预警。<strong style="color: var(--primary-dark);">行业首创。</strong></p>
+    </div>
+    <div class="card" style="background: var(--green-light); border-color: rgba(45,170,102,0.25);">
+      <h4>机会三：正反案例 + 反向参照</h4>
+      <p>构建正反案例库，帮学生优先排除错误选项——对认知有限的大学生，<strong style="color: var(--primary-dark);">避错比求对更具现实价值</strong>。</p>
+    </div>
+    <div class="card" style="background: var(--green-light); border-color: rgba(45,170,102,0.25);">
+      <h4>机会四：下沉市场覆盖</h4>
+      <p>二三四线城市大学生职业规划需求远未被满足，以免费 AI 规划为入口覆盖被高价产品排除的最广大群体。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ====== 六、产品定位与竞争策略 ====== -->
+<div class="section">
+  <div class="section-title"><span class="num">六</span> 产品定位与竞争策略</div>
+
+  <h3>6.1 核心产品定位</h3>
+  <div class="highlight-box warn">
+    <p><strong>三个"不做"：</strong></p>
+    <p style="margin-top:6px;">不做"更好的测评工具" &nbsp;·&nbsp; 不做"伪装成规划的课程商城" &nbsp;·&nbsp; 不做"只有一所大学能用的项目"</p>
+  </div>
+  <div class="highlight-box good">
+    <p><strong>一个"要做"：</strong>先问"你为了什么"、再查"你能做什么"、最后告诉你<strong>"相似的人走过哪些路"</strong>的成长导航系统。</p>
+  </div>
+
+  <h3>6.2 分层竞争策略</h3>
+  <div class="strategy-compare">
+    <div class="strategy-row">
+      <span class="vs">vs 综合型</span>
+      <span class="opponent">求职精灵 / 职比特 / 北森</span>
+      <span class="diff">以 <strong style="color: var(--primary-dark);">"客观约束筛查 + 目的分化 + 前人案例参照"</strong> 为核心差异——在"看清自己"之后加上"看清现实、避开坑"。</span>
+    </div>
+    <div class="strategy-row">
+      <span class="vs">vs 考培型</span>
+      <span class="opponent">中公 / 粉笔</span>
+      <span class="diff">以 <strong style="color: var(--primary-dark);">"不卖课的规划"</strong> 为核心差异——规划本身就是产品，在学生端有不可替代的信任优势。</span>
+    </div>
+    <div class="strategy-row">
+      <span class="vs">vs 垂直型</span>
+      <span class="opponent">超级简历 / 牛客网 / 实习僧</span>
+      <span class="diff">以 <strong style="color: var(--primary-dark);">"全周期生涯陪伴"</strong> 为核心差异——他们解决一个点，我们解决一条线，聚焦"让选择的风险可见"。</span>
+    </div>
+    <div class="strategy-row">
+      <span class="vs">vs 精准人群型</span>
+      <span class="opponent">互联派 / 前途问鹿</span>
+      <span class="diff">以 <strong style="color: var(--primary-dark);">"零门槛普惠"</strong> 为核心差异——他们高客单价窄人群，我们免费覆盖最广大的普通大学生。</span>
+    </div>
+    <div class="strategy-row">
+      <span class="vs">vs 高校/官方</span>
+      <span class="opponent">山小芽 / 学职平台</span>
+      <span class="diff">以 <strong style="color: var(--primary-dark);">"智能化 + 可复制"</strong> 为核心差异——学习山小芽的"人机协同"模式，但用标准化引擎替代校内专家依赖。</span>
+    </div>
+  </div>
+
+  <h3>6.3 三层推演架构（核心技术壁垒）</h3>
+  <div class="card-grid">
+    <div class="card">
+      <h4>引擎一：客观约束筛查</h4>
+      <p>家庭条件、地域限制、身体机能划定可行性区间。可穿戴设备持续监测，应激事件溯源 + 岗位风险标记。</p>
+    </div>
+    <div class="card">
+      <h4>引擎二：前人案例匹配</h4>
+      <p>六维画像与正反案例库做相似度匹配，优先排除不适配选项。冷启动由华图教研专家标注 100~200 条典型路径案例。</p>
+    </div>
+    <div class="card">
+      <h4>引擎三：阶段任务生成</h4>
+      <p>赛道 × 年级 × 能力差距，由大模型生成学期任务清单，支持自然语言动态切换和重新推演。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ====== 七、总结 ====== -->
+<div class="section" style="background: linear-gradient(135deg, #FFFFFF 0%, #F5F9F7 100%); border-color: rgba(45,170,102,0.2);">
+  <div class="section-title"><span class="num" style="background: linear-gradient(135deg, var(--primary), var(--primary-dark));">✦</span> 总结</div>
+  <p style="font-size:14.5px; line-height:1.9;">
+    当前大学生职业规划赛道已从单一工具竞争进入<strong>全周期、智能化、个性化</strong>的综合服务竞争阶段。12 家竞品各有致命短板，但没有任何一家同时具备 <strong style="color: var(--primary-dark);">"目的分化 + 客观约束筛查 + 前人案例参照"</strong> 三项能力。
+  </p>
+  <p style="font-size:14.5px; line-height:1.9;">
+    这与 <strong>79.1%</strong> 应届生已使用 AI 工具求职的市场趋势形成鲜明对比——AI 在规划领域的应用还停留在"AI 帮你写简历"的浅层，真正的 <strong style="color: var(--primary-dark);">"AI 帮你想清楚"</strong> 尚无人做透。
+  </p>
+  <div class="highlight-box" style="text-align:center; margin-top: 18px;">
+    <p style="font-size:15px; font-weight:600;">竞争壁垒：三个"没人做"——目的分化 · 客观约束筛查 · 前车之鉴</p>
+  </div>
+  <p style="text-align:center; font-size:15px; margin-top: 18px; color: var(--primary-dark); font-weight:600;">
+    核心理念：不替学生做选择，而是让选择的风险可见。
+  </p>
+</div>
+
+</div>
+</body>
+</html>

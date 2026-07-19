@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>大学生职业发展的多维影响因素 — 研究笔记</title>
+<style>
+  :root {
+    --bg: #F5F2EA;
+    --card-bg: #FFFFFF;
+    --text: #1B3A2A;
+    --text-secondary: #4B5563;
+    --text-muted: #6B7280;
+    --primary: #2DAA66;
+    --primary-light: #E8F5ED;
+    --primary-dark: #1B5E3F;
+    --border: #E5E7EB;
+    --border-soft: #F0EFEA;
+    --red: #E85D5D;
+    --red-light: #FDECEC;
+    --orange: #F39C42;
+    --orange-light: #FEF3E4;
+    --yellow: #E5B547;
+    --yellow-light: #FDF6E0;
+    --blue: #4A90E2;
+    --blue-light: #E8F1FB;
+    --purple: #8B7FD8;
+    --purple-light: #F0EEFB;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Noto Serif SC", Georgia, serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    padding: 40px 20px;
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+  }
+  body::after {
+    content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+    background-image:
+      radial-gradient(circle at 10% 20%, rgba(45,170,102,0.04) 0%, transparent 30%),
+      radial-gradient(circle at 90% 80%, rgba(74,144,226,0.03) 0%, transparent 30%),
+      radial-gradient(circle at 50% 50%, rgba(243,156,66,0.02) 0%, transparent 40%);
+  }
+
+  /* Cover */
+  .cover {
+    max-width: 1000px;
+    margin: 0 auto 50px;
+    text-align: center;
+    position: relative;
+    background: linear-gradient(135deg, #FFFFFF 0%, #F0F9F3 40%, #D4F0DF 80%, #A8D5B5 100%);
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid rgba(45, 170, 102, 0.25);
+    box-shadow: 0 20px 60px rgba(45, 170, 102, 0.15), 0 4px 12px rgba(0, 0, 0, 0.05);
+    min-height: 520px;
+  }
+  .cover-art { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
+  .cover-content { position: relative; z-index: 2; padding: 70px 50px 60px; text-align: center; }
+  .cover-subtitle-block { display: inline-block; text-align: center; }
+  .cover-tagline { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 14px 0 20px; }
+  .cover-tagline .tag-pill {
+    padding: 5px 12px; background: rgba(255,255,255,0.7);
+    border: 1px solid rgba(45,170,102,0.3);
+    border-radius: 14px; font-size: 12px; color: var(--primary-dark);
+    backdrop-filter: blur(4px);
+  }
+  .cover-tagline .tag-pill strong { color: var(--primary-dark); font-weight: 800; }
+  .cover-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 8px 20px; background: var(--primary); color: #fff;
+    border-radius: 24px; font-size: 13px; font-weight: 600;
+    letter-spacing: 2px; margin-bottom: 40px;
+    box-shadow: 0 4px 16px rgba(45, 170, 102, 0.4);
+  }
+  .cover-badge::before { content: ''; width: 6px; height: 6px; background: #fff; border-radius: 50%; box-shadow: 0 0 8px #fff; }
+  .cover h1 { font-size: 48px; font-weight: 800; letter-spacing: 2px; line-height: 1.25; margin-bottom: 10px; color: #1B3A2A; }
+  .cover h1 .accent { color: transparent; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); -webkit-background-clip: text; background-clip: text; }
+  .cover .subtitle { font-size: 22px; color: var(--text-secondary); letter-spacing: 1.5px; margin: 8px auto; font-weight: 500; text-align: center; }
+  .cover .title-glow {
+    display: flex; justify-content: center; margin: 0 auto 20px;
+    position: relative; height: 3px; width: 360px;
+  }
+  .cover .title-glow::before {
+    content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    width: 360px; height: 3px;
+    background: linear-gradient(90deg, transparent 0%, var(--primary) 50%, transparent 100%);
+    border-radius: 2px;
+  }
+  .cover .title-glow::after {
+    content: ''; position: absolute; top: -3px; left: 50%; transform: translateX(-50%);
+    width: 140px; height: 12px;
+    background: radial-gradient(ellipse, rgba(45,170,102,0.7) 0%, transparent 70%);
+    filter: blur(4px);
+  }
+  .cover .meta { display: flex; justify-content: center; gap: 0; flex-wrap: wrap; border-top: 1px solid rgba(45,170,102,0.2); border-bottom: 1px solid rgba(45,170,102,0.2); padding: 20px 0; max-width: 720px; margin: 20px auto 0; }
+  .cover .meta-item { text-align: center; padding: 0 40px; border-right: 1px solid rgba(45,170,102,0.2); }
+  .cover .meta-item:last-child { border-right: none; }
+  .cover .meta-label { font-size: 11px; color: var(--text-muted); letter-spacing: 2px; margin-bottom: 6px; text-transform: uppercase; font-weight: 500; }
+  .cover .meta-value { font-size: 16px; color: #1B3A2A; font-weight: 700; letter-spacing: 0.5px; }
+  .cover .ref-count {
+    margin-top: 16px; font-size: 12px; color: var(--text-secondary);
+    letter-spacing: 1px; background: rgba(255,255,255,0.5);
+    display: inline-block; padding: 6px 14px; border-radius: 14px;
+  }
+
+  /* Container */
+  .container { max-width: 1000px; margin: 0 auto; }
+
+  /* Body subtle background */
+  body::before {
+    content: ''; position: fixed; inset: 0; z-index: -1;
+    background:
+      radial-gradient(ellipse 600px 400px at 20% 10%, rgba(45,170,102,0.04), transparent),
+      radial-gradient(ellipse 600px 400px at 80% 90%, rgba(74,144,226,0.04), transparent);
+    pointer-events: none;
+  }
+
+  /* Section divider with glow line */
+  .section-divider {
+    display: flex; align-items: center; justify-content: center;
+    margin: 36px 0; gap: 16px;
+  }
+  .section-divider::before, .section-divider::after {
+    content: ''; flex: 1; height: 1px;
+    background: linear-gradient(to right, transparent, rgba(45,170,102,0.3), transparent);
+  }
+  .section-divider .dot {
+    width: 6px; height: 6px; border-radius: 50%; background: var(--primary);
+    box-shadow: 0 0 12px var(--primary);
+  }
+
+  /* Sections */
+  .section {
+    margin-bottom: 28px; background: var(--card-bg);
+    border: 1px solid var(--border-soft); border-radius: 18px;
+    padding: 32px 40px; box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    position: relative; overflow: hidden;
+  }
+  /* Section accent strip (left side) */
+  .section::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+    background: linear-gradient(180deg, var(--primary) 0%, var(--primary-dark) 100%);
+  }
+  /* Section variants for visual variety */
+  .section.section-soft {
+    background: linear-gradient(135deg, #FFFFFF 0%, #F8FCF9 100%);
+    border-color: rgba(45,170,102,0.15);
+  }
+  .section.section-accent {
+    background: linear-gradient(135deg, #FAFBFA 0%, #F0F9F3 100%);
+    border-color: rgba(45,170,102,0.2);
+  }
+  .section.section-dark {
+    background: linear-gradient(135deg, #1B3A2A 0%, #2D5040 100%);
+    border-color: transparent;
+  }
+  .section.section-dark .section-title { color: #FFFFFF; }
+  .section.section-dark .section-title .num { background: rgba(255,255,255,0.2); color: #FFFFFF; }
+  .section.section-dark .section-subtitle { color: rgba(255,255,255,0.7); }
+  .section.section-dark p { color: rgba(255,255,255,0.85); }
+  .section.section-dark strong { color: #FFD56B; font-weight: 700; }
+  .section.section-dark h3 { color: #A8D5B5; }
+  .section.section-dark h3::before { background: #A8D5B5; }
+  .section.section-dark h4 { color: #C8E6CB; }
+  .section.section-dark li { color: rgba(255,255,255,0.85); }
+  .section.section-dark li::marker { color: #A8D5B5; }
+
+  .section-title {
+    font-size: 20px; font-weight: 700; margin-bottom: 4px;
+    display: flex; align-items: center; gap: 10px; color: var(--text);
+  }
+  .section-title .num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 30px; height: 30px; border-radius: 8px;
+    background: var(--primary); color: #fff; font-size: 13px; font-weight: 700;
+  }
+  .section-title .ico {
+    margin-left: 4px; font-size: 18px; opacity: 0.6;
+  }
+  .section-subtitle { font-size: 13px; color: var(--text-secondary); margin-bottom: 20px; margin-left: 40px; }
+
+  h3 { font-size: 17px; font-weight: 700; margin: 22px 0 8px; color: var(--text); }
+  h3::before { content: ''; display: inline-block; width: 4px; height: 16px; background: var(--primary); border-radius: 2px; margin-right: 8px; vertical-align: middle; position: relative; top: -1px; }
+  h3:first-child { margin-top: 0; }
+  h4 { font-size: 15px; font-weight: 700; margin: 16px 0 6px; color: var(--primary-dark); }
+
+  p { margin-bottom: 10px; text-align: justify; font-size: 14px; color: #374151; }
+  strong { color: var(--text); font-weight: 700; }
+  ul, ol { padding-left: 20px; margin-bottom: 12px; font-size: 14px; color: #374151; }
+  li { margin-bottom: 4px; }
+  li::marker { color: var(--primary); }
+
+  /* Abstract */
+  .abstract-box {
+    background: var(--primary-light); border: 1px solid rgba(45,170,102,0.2);
+    border-radius: 14px; padding: 24px 28px; margin: 16px 0;
+  }
+  .abstract-box p { margin: 6px 0; font-size: 13.5px; line-height: 1.85; }
+  .keywords {
+    margin-top: 12px; font-size: 13px; color: var(--text-muted);
+  }
+  .keywords strong { color: var(--primary-dark); }
+
+  /* Highlight cards */
+  .insight-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin: 16px 0; }
+  .insight-card {
+    background: #FAFBFA; border: 1px solid var(--border-soft); border-radius: 12px; padding: 20px;
+  }
+  .insight-card h5 { font-size: 14px; font-weight: 700; margin-bottom: 6px; color: var(--text); }
+  .insight-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin: 0; }
+  .insight-card .cite { font-size: 11px; color: var(--text-muted); margin-top: 6px; }
+
+  /* Key takeaway callout */
+  .key-takeaway {
+    display: flex; gap: 14px; padding: 18px 22px;
+    background: linear-gradient(135deg, var(--primary-light) 0%, #D4F0DF 100%);
+    border: 1px solid rgba(45,170,102,0.25);
+    border-radius: 12px; margin: 16px 0;
+    position: relative;
+  }
+  .key-takeaway::before {
+    content: '✦'; flex-shrink: 0;
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--primary); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; font-weight: 700;
+  }
+  .key-takeaway .kt-body { flex: 1; }
+  .key-takeaway .kt-title { font-size: 13px; font-weight: 700; color: var(--primary-dark); margin-bottom: 4px; letter-spacing: 1px; }
+  .key-takeaway .kt-text { font-size: 13.5px; color: var(--text); line-height: 1.6; margin: 0; }
+
+  /* Blockquote */
+  blockquote {
+    border-left: 3px solid var(--primary); background: var(--primary-light);
+    margin: 14px 0; padding: 14px 20px; border-radius: 0 10px 10px 0;
+    font-size: 14px; color: var(--text-secondary); font-style: italic;
+  }
+  blockquote strong { font-style: normal; }
+
+  /* Principle cards */
+  .principle-grid { display: grid; gap: 12px; margin: 14px 0; }
+  .principle {
+    display: flex; gap: 14px; padding: 14px 18px;
+    background: #FAFBFA; border: 1px solid var(--border-soft); border-radius: 10px;
+    align-items: flex-start;
+  }
+  .principle .p-num {
+    flex-shrink: 0; width: 32px; height: 32px; border-radius: 8px;
+    background: var(--primary); color: #fff; display: flex; align-items: center;
+    justify-content: center; font-size: 14px; font-weight: 700;
+  }
+  .principle .p-body h5 { font-size: 14px; font-weight: 700; margin: 0 0 4px; }
+  .principle .p-body p { font-size: 13px; color: var(--text-secondary); margin: 0; line-height: 1.6; }
+
+  /* Tables */
+  .table-wrap { width: 100%; overflow-x: auto; margin: 14px 0; border-radius: 10px; border: 1px solid var(--border-soft); }
+  .styled-table { width: 100%; min-width: 800px; border-collapse: collapse; font-size: 12.5px; }
+  .styled-table th { background: var(--primary-light); padding: 10px 12px; text-align: left; font-weight: 700; color: var(--primary-dark); border-bottom: 1px solid rgba(45,170,102,0.2); white-space: nowrap; }
+  .styled-table td { padding: 9px 12px; border-bottom: 1px solid #F3F4F6; color: #4B5563; vertical-align: top; }
+  .styled-table tr:last-child td { border-bottom: none; }
+  .styled-table tr:hover td { background: #FAFBFA; }
+
+  /* Ref list */
+  .ref-list { font-size: 12.5px; color: var(--text-secondary); line-height: 1.8; }
+  .ref-list p { margin-bottom: 2px; }
+
+  /* Document foot note */
+  .doc-note { font-size: 12px; color: var(--text-muted); text-align: center; padding: 10px; border-top: 1px solid var(--border-soft); margin-top: 20px; line-height: 1.6; }
+
+  /* Source line */
+  .source-line {
+    margin-top: 10px; font-size: 11px; color: var(--text-muted);
+    padding: 8px 12px; background: #FAFBFA; border-left: 2px solid var(--primary); border-radius: 4px;
+  }
+
+  @media (max-width: 768px) {
+    .cover h1 { font-size: 32px; }
+    .cover .subtitle { font-size: 17px; }
+    .cover .meta-item { padding: 0 20px; }
+    .section { padding: 24px 22px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ====== COVER ====== -->
+<div class="cover">
+  <svg class="cover-art" viewBox="0 0 1000 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="orb1" cx="0.5" cy="0.5" r="0.5"><stop offset="0%" stop-color="#2DAA66" stop-opacity="0.08"/><stop offset="100%" stop-color="#2DAA66" stop-opacity="0"/></radialGradient>
+      <radialGradient id="orb2" cx="0.5" cy="0.5" r="0.5"><stop offset="0%" stop-color="#4A90E2" stop-opacity="0.06"/><stop offset="100%" stop-color="#4A90E2" stop-opacity="0"/></radialGradient>
+      <pattern id="grid" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1.2" fill="#2DAA66" opacity="0.12"/></pattern>
+    </defs>
+    <rect x="0" y="0" width="1000" height="500" fill="url(#grid)"/>
+    <circle cx="150" cy="120" r="200" fill="url(#orb1)"/>
+    <circle cx="880" cy="380" r="180" fill="url(#orb2)"/>
+    <line x1="60" y1="60" x2="120" y2="60" stroke="#2DAA66" stroke-width="2" opacity="0.7"/>
+    <line x1="60" y1="60" x2="60" y2="120" stroke="#2DAA66" stroke-width="2" opacity="0.7"/>
+    <line x1="940" y1="440" x2="880" y2="440" stroke="#2DAA66" stroke-width="2" opacity="0.7"/>
+    <line x1="940" y1="440" x2="940" y2="380" stroke="#2DAA66" stroke-width="2" opacity="0.7"/>
+    <rect x="80" y="440" width="8" height="8" fill="#2DAA66" opacity="0.8"/>
+    <rect x="94" y="440" width="8" height="8" fill="#2DAA66" opacity="0.5"/>
+    <rect x="80" y="454" width="8" height="8" fill="#2DAA66" opacity="0.5"/>
+    <rect x="906" y="78" width="8" height="8" fill="#2DAA66" opacity="0.8"/>
+    <rect x="920" y="78" width="8" height="8" fill="#2DAA66" opacity="0.5"/>
+    <circle cx="200" cy="360" r="4" fill="#2DAA66" opacity="0.7"/>
+    <circle cx="780" cy="180" r="4" fill="#2DAA66" opacity="0.7"/>
+    <circle cx="250" cy="120" r="3" fill="#2DAA66" opacity="0.5"/>
+  </svg>
+  <div class="cover-content">
+    <div class="cover-badge">研究笔记 · RESEARCH NOTES</div>
+    <h1>大学生<span class="accent">职业发展</span>的多维影响因素</h1>
+    <div class="title-glow"></div>
+    <div class="cover-subtitle-block">
+      <p class="subtitle">-- 文献综述 --</p>
+      <div class="cover-tagline"><span class="tag-pill">🎯 围绕 <strong>产品设计</strong> 展开</span><span class="tag-pill">📐 55 篇文献支撑</span><span class="tag-pill">🔬 SDT × CCT × SCCT 三角验证</span></div>
+    </div>
+    <div class="meta">
+      <div class="meta-item"><div class="meta-label">Team</div><div class="meta-value">蝶飞梧桐</div></div>
+      <div class="meta-item"><div class="meta-label">Date</div><div class="meta-value">2026 年 7 月</div></div>
+      <div class="meta-item"><div class="meta-label">Framework</div><div class="meta-value">SDT · CCT · SCCT · 文化再生产理论</div></div>
+    </div>
+    <div class="ref-count">共引用 55 篇文献（英文 22 篇 · 中文 28 篇 · 专著 4 部 · 学位论文 1 篇）</div>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- ====== 摘要 ====== -->
+<div class="section">
+  <div class="section-title"><span class="num">✦</span> 摘&nbsp;&nbsp;要</div>
+  <div class="abstract-box">
+    <p>当前大学生职业规划市场存在一个<strong>根本性的视角错位</strong>：几乎所有测评工具默认学生以"自我实现"为单一目标，忽略了现实中职业目的的高度分化——有人以经济独立为首要诉求，有人追求工作生活平衡，有人想摆脱原生家庭。与此同时，现有产品普遍存在三个结构性盲区：<strong>脱离现实约束</strong>（忽略家庭经济、父母职业资源等客观条件）、<strong>忽视身心健康状态</strong>（从未将身体机能、精力阈值、抗压能力纳入职业匹配模型）、<strong>缺乏"相似背景人生参考"</strong>（没有利用真实数据做相似人群的路径回溯，作为自我定位的参照镜）。</p>
+    <p>本综述围绕自研产品"沿途有声"的四个核心设计决策，系统梳理了身心健康对职业决策的影响、家庭因素的多维分层作用、自主目标设定的必要性以及"小镇做题家"的结构性困境四个主题的学术文献。理论基础整合了自我决定理论（SDT）、生涯建构理论（CCT）和社会认知职业理论（SCCT）三大框架，综合运用家庭资本理论、文化再生产理论和职业决策自我效能感（CDMSE）研究。</p>
+    <p><strong>核心结论：</strong>（1）自主性需求是行为持续性的前提——SDT证明自我决定水平与生涯决策能力显著正相关（r=0.685），为"目的先行"设计提供了直接的定量依据；（2）慢性应激通过损害决策质量间接影响职业路径选择的合理性，可穿戴HRV监测已具备学术可行性但尚未被纳入职业规划辅助；（3）家庭因素的影响是多维且动态的——经济资本、文化资本和社会资本独立作用，且父母期望通过激发子女主动探索行为而非直接指令来生效；（4）"小镇做题家"的困境根源于"直觉依赖模式"——来自弱势家庭的学生在外部指令撤除后缺乏自主决策的内部系统。</p>
+    <div class="keywords"><strong>关键词：</strong>大学生职业规划 · 身心健康 · 家庭资本 · 自主性 · 小镇做题家 · 可穿戴设备 · 生涯适应力</div>
+  </div>
+</div>
+
+<!-- ====== 目录 ====== -->
+<div class="section">
+  <div class="section-title"><span class="num">目</span> 目&nbsp;&nbsp;录</div>
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4px 40px; font-size: 14px; margin: 12px 0;">
+    <div style="color: var(--text-secondary);">一、引言：研究缘起与产品设计问题</div>
+    <div style="color: var(--text-secondary);">五、主题三：自主目标设定</div>
+    <div style="color: var(--text-secondary);">二、理论基础：三大职业心理理论框架</div>
+    <div style="color: var(--text-secondary);">六、主题四：综合因素与设计路径</div>
+    <div style="color: var(--text-secondary);">三、主题一：身心健康与职业发展</div>
+    <div style="color: var(--text-secondary);">七、研究结论与产品设计启示</div>
+    <div style="color: var(--text-secondary);">四、主题二：家庭因素的多维分层影响</div>
+    <div style="color: var(--text-secondary);">八、参考文献清单</div>
+  </div>
+</div>
+
+<!-- ====== 一、引言 ====== -->
+<div class="section">
+  <div class="section-title"><span class="num">一</span> 引言：研究缘起与产品设计问题<span class="ico">🎯</span></div>
+
+  <p>在大学生职业规划产品的设计过程中，一个日益清晰的认知是：用户的职业发展路径并非仅由个人能力和意愿决定，而是受到多重结构性因素——包括家庭背景、身心健康状况、个人心理资源以及社会文化环境——的深刻塑造。市面上主流职业规划工具普遍存在<strong>三大缺陷</strong>：仅提供职业测评、岗位检索等表层工具；忽略用户身心健康、原生家庭、成长文化资本等深层约束条件；缺乏"先自主确立职业目标、再拆解阶段规划"的标准化引导流程，服务同质化严重，无法适配不同出身、不同动机的大学生群体的真实需求。</p>
+
+  <p>自研产品"沿途有声"正是基于以上分析，提出了一套区别于传统测评工具的差异化设计：<strong>在起点强制用户明确"规划目的"</strong>（自我实现 / 经济独立 / 摆脱原生家庭 / 体验多元人生），整合生理数据、家庭约束、行为日志与价值观排序构建<strong>六维学情画像</strong>，并通过"客观约束筛查—前人案例匹配—阶段任务生成"<strong>三层推演</strong>实现路径可落地。本综述的目的是为上述每一个设计决策找到其对应的<strong>学术依据</strong>。</p>
+
+  <p>本笔记围绕四个核心主题——身心健康、家庭因素、自主目标设定的必要性、"小镇做题家"的结构性困境——展开文献梳理，理论基础整合了 SDT、CCT 和 SCCT 三大框架，每一部分末尾提炼直接可落地的产品设计论据。</p>
+</div>
+
+<!-- ====== 二、理论基础 ====== -->
+<div class="section section-soft">
+  <div class="section-title"><span class="num">二</span> 理论基础：三大职业心理理论的整合框架<span class="ico">📚</span></div>
+
+  <h3>2.1 自我决定理论（SDT）</h3>
+  <p>Ryan 和 Deci提出的自我决定理论认为，当个体的三种基本心理需求——<strong>自主性</strong>（autonomy）、<strong>胜任感</strong>（competence）和<strong>关系感</strong>（relatedness）——得到满足时，将表现出更高的内在动机和更优的心理健康。SDT 最核心的启示在于：<strong>自主性需求是行为持续性的前提</strong>。如果学生觉得"这个规划是别人替我选的"，即使推荐结果客观上最优，执行动力也将大打折扣。</p><div class="insight-grid">
+    <div class="insight-card">
+      <h5>自我决定水平 ⟶ 生涯决策能力</h5>
+      <p>Cahyasari（2024）对200名毕业班大学生的研究发现，两者存在显著正相关（r=0.685, p&lt;0.001）。</p>
+      <div class="cite">Ref: Cahyasari, A.C. (2024)</div>
+    </div>
+    <div class="insight-card">
+      <h5>未来工作自我显著性</h5>
+      <p>Lu等（2024）基于1246名中国大学生追踪设计发现：学生需要先有能力想象"自己想成为谁"，单纯的"老师让你干什么"无法替代这一认知建构过程。</p>
+      <div class="cite">Ref: Lu, L., Gao, X. &amp; Xiao, Y. (2024)</div>
+    </div>
+  </div>
+
+  
+  <blockquote><strong>💡 产品启示：</strong>规划工具必须在起点让学生感到"这是我自己的选择"。</blockquote>
+  <h3>2.2 生涯建构理论（CCT）</h3>
+  <p>Savickas提出的生涯建构理论强调在职业边界消融的后现代语境下，传统的"人-职匹配"范式已不足以解释个体的职业生涯发展。CCT 提出<strong>生涯适应力</strong>（career adaptability）作为核心概念，包含关注（concern）、控制（control）、好奇（curiosity）和自信（confidence）四个维度。</p>
+
+  <p>Predictors of Career Adaptability among Chinese Higher Education Students（2025）确认，<strong>主动性人格、职业决策自我效能感和社会支持</strong>是生涯适应力的三个稳定预测因子。Gao等（2025）进一步证实生涯适应力通过职业未来时间视角的中介作用影响毕业生心理健康——"能看见自己的未来路径"本身就是一种保护性心理资源。</p>
+
+  <h3>2.3 社会认知职业理论（SCCT）</h3>
+  <p>Lent, Brown 和 Hackett提出的 SCCT 强调个人职业选择在<strong>环境、个人与行为三者交互作用</strong>中形成。其核心认知变量——自我效能、结果期待和职业目标——为理解"为什么同样的测评报告对不同学生产生不同的行动效果"提供了分析框架：只有当学生既相信自己能做到（高自我效能）、又相信做到后有好的结果（积极结果期待），测评信息才会转化为实际的职业探索行为。</p>
+</div>
+
+<!-- ====== 三、主题一 ====== -->
+<div class="section">
+  <div class="section-title"><span class="num">三</span> 主题一：身心健康对职业发展的双向影响<span class="ico">💚</span></div>
+
+  <h3>3.1 心理健康与职业决策：互为因果的双向路径</h3>
+  <p>心理健康状况与职业决策之间不是单向的"因-果"关系，而是<strong>双向的互为因果循环</strong>。一方面，针对812名高职学生的研究表明，职业决策自我效能感越高，心理健康水平越好；另一方面，大学生自尊对职业决策困难的影响是通过<strong>"低自尊→抑郁→低自我效能→决策困难"</strong>的链式中介效应实现的——心理健康不仅是职业发展的"结果变量"，更是影响决策质量的"前因变量"。</p>
+  <p>全球调研数据显示，超过<strong>40%</strong>的国内大学生存在求职焦虑、选择困难等心理问题。焦虑会形成<strong>"焦虑-行动瘫痪"闭环</strong>：心理压力过高时，学生回避行业探索、简历投递和实习尝试，陷入"越迷茫越不行动、越不行动越焦虑"的恶性循环。</p>
+
+  <h3>3.2 生理特质与岗位适配：被忽略的硬件约束</h3>
+  <p>生理禀赋和长期身体健康水平决定个体的职业耐受度与岗位适配边界，但这一维度在现有职业规划工具中<strong>几乎被完全忽略</strong>。先天感知、体能和情绪生理基础塑造了职业兴趣的底层——擅长精细操作、人际共情和逻辑推演的生理特质对应完全不同的赛道。</p>
+  <p>Benitez-Agudelo等（2025）的纵向研究直接提供了<strong>"高分+高压"悖论</strong>的生理证据：在一个学期内，学生的睡眠时长、睡眠质量和心率变异（HRV）均显著下降，焦虑和抑郁症状上升，但学业成绩却在提升——<strong>"更好的成绩可能以长期身心健康为代价"</strong>。</p>
+
+  <h3>3.3 可穿戴生理监测的技术可行性</h3>
+  <p>Kim等（2024）在 Educational Psychology Review 发表的系统综述确认：<strong>HRV 在测量教育环境中的应激水平时具有中等程度的共时效度</strong>，可穿戴设备因佩戴便捷、可连续监测而成为首选。Bloomfield等（2024）利用大一学生睡眠数据证明 <strong>HRV 每增加1毫秒，高度应激几率降低1.2%</strong>。Al-Hamad等（2024）对27项可穿戴 AI 研究的荟萃分析确认 SVM 和 CNN 是表现最好的应激分类算法。</p>
+
+  <blockquote><strong>💡 产品启示：</strong>可穿戴 HRV 监测已具备学术可行性，但目前尚无任何研究将其纳入职业规划的决策辅助框架——这构成我们产品的<strong>学术创新空间</strong>。</blockquote>
+</div>
+
+<!-- ====== 四、主题二 ====== -->
+<div class="section">
+  <div class="section-title"><span class="num">四</span> 主题二：家庭因素的多维分层影响<span class="ico">🏠</span></div>
+
+  <h3>4.1 家庭社会经济地位与代际传递</h3>
+  <p>家庭社会经济地位（SES）通常从父母职业、受教育程度和家庭收入三方面测量。王昳玥等（2021）基于550名大学生数据发现，家庭SES通过<strong>心理资本（希望、韧性、乐观、自我效能）的完全中介效应</strong>间接影响职业探索水平。郝建与胡永远的研究发现，家庭背景的<strong>间接影响比直接影响更为显著</strong>——优势家庭背景的大学生不仅在物质资源上具有优势，更在信息获取、机会识别等"看不见"的层面占据先机。</p>
+
+  <h3>4.2 家庭资本的三维结构</h3>
+  <p>家庭资本包含<strong>经济资本、文化资本和社会资本</strong>三个层面。Li等（2012）在 Journal of Development Economics 上的研究以高考成绩作为能力控制变量，发现拥有"干部父母"的毕业生起薪溢价高达 <strong>15%</strong>，且不能由大学质量、专业选择和在校人力资本积累解释。边燕杰等（2008）发现父亲为国家机关干部的大学生选择政府部门就业的几率<strong>高 2.67 倍</strong>。周宇香（2020）的数据揭示了家庭约束的另一面：<strong>78.3%的贫困在校生偏好体制内就业，但实际进入比例仅为45.4%</strong>——期望与现实之间存在结构性断裂。</p>
+
+  <h3>4.3 家庭功能的动态过程</h3>
+  <p>刘天阳与顾雪英的研究系统区分了家庭因素的<strong>"静态变量"与"动态功能"</strong>两个维度——以往研究多聚焦于家庭经济条件、父母职业等静态背景，而家庭沟通、情感表达和问题解决等动态过程同样对大学生的职业探索产生显著作用。</p>
+
+  <h3>4.4 父母期望的复杂效应</h3>
+  <p>Zhou等（2023）基于3196名中国青少年的三年追踪数据发现，父母职业期望与生涯适应力之间存在跨时间双向预测关系，而"与职业相关的父母支持"在两者之间起中介作用。Qi等（2024）对2540名高中生的纵向追踪进一步发现：<strong>父母职业期望通过职业探索对职业抱负产生间接影响，直接效应不显著</strong>——"父母说你应该做什么"无法直接改变子女的职业抱负，<em>只有通过激发主动探索才有效</em>。</p>
+  <p>Zhu等（2023）区分了两种父母期望——"回报/声望期望"和"舒适/稳定期望"——并发现存在显著的<strong>性别调节效应</strong>。此外，感知到的父母期望存在<strong>倒U型效应</strong>——适度期望促进发展，过高期望引发内化问题与退缩行为。</p>
+
+  <blockquote><strong>💡 产品启示：</strong>产品需要多维建模家庭约束（而非单一标签化），在父母高期望-强干预时为学生保留自主决策的空间。</blockquote>
+</div>
+
+<!-- ====== 五、主题三 ====== -->
+<div class="section">
+  <div class="section-title"><span class="num">五</span> 主题三：自主目标设定的理论与实证依据<span class="ico">🎯</span></div>
+
+  <h3>5.1 职业决策自我效能感（CDMSE）的核心地位</h3>
+  <p>CDMSE 包括自我评价、收集信息、选择目标、制定规划和解决问题五个维度。一项以近15年发表的58篇文献、26501个独立样本为对象的元分析表明，性别、年级和生源地等因素在不同水平上对 CDMSE 产生显著差异。值得注意的是，五维度中<strong>"选择目标"与"制定规划"的顺序揭示了规划的核心逻辑：先有清晰的目标选择，后有系统的规划制定</strong>。归因风格和心理韧性与 CDMSE 之间存在显著相关——"相信自己能选对"的信念本身就是职业探索行为的启动条件。</p>
+
+  <h3>5.2 从《金榜题名之后》到"小镇做题家"</h3>
+  <p>郑雅君（2023）的《金榜题名之后：大学生出路分化之谜》基于对北京和上海两所顶尖高校62名毕业生的深度访谈（每人3-6小时），提出了<strong>"目标掌控模式"与"直觉依赖模式"</strong>的二分框架。核心发现是：这两种模式不是个人能力的差异，而是<strong>不同阶层习性的产物</strong>。</p>
+  <p>研究进一步区分了"小镇做题家"的两个亚型：<strong>"县域中产做题家"</strong>（高期望-严要求-强干预）和<strong>"农村做题家"</strong>（经济与文化资本双重匮乏）。从场域理论的角度来看，"小镇做题家"经历了从"分数至上"的应试场域到"综合素质"的大学场域的剧烈转换——不同场域之间规则的巨大差异使其面临深刻的认知失调和适应困难。</p>
+  <p>布尔迪厄和帕斯隆的文化再生产理论、拉鲁的<strong>"协作培养 vs 自然成长"</strong>教养模式民族志为上述中国经验提供了宏观理论框架。</p>
+
+  <h3>5.3 目标先行的规划逻辑</h3>
+  <p>综合 SDT 的自主性需求、CCT 的生涯适应力建构、SCCT 的职业目标中介效应和 CDMSE 的目标-规划顺序，一个清晰的学术共识浮现：<strong>职业规划的有效性取决于目标澄清的质量，而非规划工具的复杂度</strong>。郑雅君指出："光有一个短期筹划是不够的，你要知道你上大学到底为了什么。优势家庭的孩子真正优势就在于，掌控目标很可能本身就是他们的直觉。"</p>
+
+  <blockquote><strong>💡 产品启示：</strong>规划工具的 Step 0 必须是"目标澄清"。</blockquote>
+</div>
+
+<!-- ====== 六、主题四 ====== -->
+<div class="section section-accent">
+  <div class="section-title"><span class="num">六</span> 主题四：综合因素交互与产品设计路径<span class="ico">🔗</span></div>
+
+  <h3>6.1 多维因素的交互网络</h3>
+  <p>上述四个维度的因素并非孤立作用，而是相互交织的复合机制。家庭经济状况直接影响青少年的营养条件、医疗保障和心理支持环境；家庭教养方式通过成就动机和自我效能感等中介变量影响生涯适应力；心理健康状况通过影响归因风格和心理韧性间接影响决策质量。</p>
+  <p>"小镇做题家"群体在自我效能感、职业方向感和工作意义感等心理资源维度上普遍偏低——恰恰是这些心理资源的匮乏使其陷入"不知道往哪里去"的根本困境。"县域中产"与"农村"两个亚型在家庭资本结构上的差异，进一步说明了<strong>单一维度的干预必然不足</strong>：前者需要的是自主决策训练，后者需要的是信息供给和试错成本补偿。</p>
+
+  <h3>6.2 产品设计的六大原则</h3>
+  <div class="key-takeaway">
+    <div class="kt-body">
+      <div class="kt-title">核心设计哲学</div>
+      <p class="kt-text">产品的<strong>「目的先行 → 客观约束 → 案例参照 → 任务生成」</strong>四阶段架构，是基于 SDT + CCT + SCCT + 家庭资本理论 + 文化再生产理论的<strong>学术综合设计</strong>，不是经验直觉。</p>
+    </div>
+  </div>
+
+  <div class="principle-grid">
+    <div class="principle">
+      <div class="p-num">1</div>
+      <div class="p-body">
+        <h5>以"目标澄清"为起点</h5>
+        <p>产品必须包含 Step 0，强制学生在起点明确"我在为谁、为了什么做这个规划"——这不是一道可有可无的入口题，而是整套推演逻辑的锚点。文献支撑：SDT [1]、CCT [6]、王昳玥等 [24]、郑雅君 [42]。</p>
+      </div>
+    </div>
+    <div class="principle">
+      <div class="p-num">2</div>
+      <div class="p-body">
+        <h5>将身心健康纳入职业规划框架</h5>
+        <p>产品应包含心理健康筛查、生理耐受度评估和适配岗位的身体约束提示——让"硬件"先说话。可穿戴生理监测的学术可行性已经确立 [17-22]，将其引入规划辅助是行业首创。</p>
+      </div>
+    </div>
+    <div class="principle">
+      <div class="p-num">3</div>
+      <div class="p-body">
+        <h5>家庭因素的差异化识别</h5>
+        <p>区分家庭经济条件、父母期望类型和支持质量，进行多维度建模。对低 SES 学生提供信息资源的补偿设计；对父母高期望-强干预的学生，为其保留自主决策的独立空间。</p>
+      </div>
+    </div>
+    <div class="principle">
+      <div class="p-num">4</div>
+      <div class="p-body">
+        <h5>针对"小镇做题家"的专项设计</h5>
+        <p>该群体最迫切的需求包括：职业世界的信息补全、精英大学隐性规则的显性化、从"做题逻辑"到"规划逻辑"的认知转换 [42,43,44]。前人案例引擎直接服务于这一需求。</p>
+      </div>
+    </div>
+    <div class="principle">
+      <div class="p-num">5</div>
+      <div class="p-body">
+        <h5>"目的-筛查-验证-任务-反馈"完整闭环</h5>
+        <p>基于 SCCT 中"环境-个人-行为"三者的交互框架 [3]，产品应通过持续反馈帮助用户动态调整路径。</p>
+      </div>
+    </div>
+    <div class="principle">
+      <div class="p-num">6</div>
+      <div class="p-body">
+        <h5>避免"宿命化"</h5>
+        <p>刘保中等的研究证明后致性因素的效应大于先赋性因素 [31]——产品必须在对客观约束的诚实评估和"个人可突破的限制空间"之间找到平衡，不能用出身给用户提前宣判。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== 七、结论 ====== -->
+<div class="section section-dark">
+  <div class="section-title"><span class="num">七</span> 研究结论与产品设计启示 <span class="ico">✦</span></div>
+  <p>基于以上多维度的文献回顾，本研究的核心结论与产品设计启示可归纳如下：产品"<strong>目的先行 → 客观约束 → 案例参照 → 任务生成</strong>"的四阶段架构不是经验直觉，而是基于 SDT（自主性启动）、CCT（生涯适应力建构）、SCCT（认知-行为闭环）、家庭资本理论（结构性约束去蔽）和文化再生产理论（隐性规则显性化）的<strong>学术综合设计</strong>。</p>
+</div>
+
+<!-- ====== 文献-产品启示对照表 ====== -->
+<div class="section">
+  <div class="section-title"><span class="num">表</span> 文献-产品设计启示对照表</div>
+  <div class="table-wrap">
+    <table class="styled-table">
+      <thead>
+        <tr><th>主题</th><th>子主题</th><th>核心发现</th><th>产品启示</th><th>文献</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>理论基础</td><td>SDT</td><td>自主性需求满足预测决策质量与持续性</td><td>目的先行</td><td>[1,4,5]</td></tr>
+        <tr><td>理论基础</td><td>CCT</td><td>生涯适应力是可培养的心理资源</td><td>多赛道可视化推演</td><td>[2,6,7,8]</td></tr>
+        <tr><td>理论基础</td><td>SCCT</td><td>自我效能+结果期待→职业目标→职业行为</td><td>画像+路径闭环</td><td>[3,9,10]</td></tr>
+        <tr><td>身心健康</td><td>心理-决策双向</td><td>焦虑-行动瘫痪闭环；低自尊-抑郁-低效能链</td><td>心理健康筛查+疏导</td><td>[11,12,13,14]</td></tr>
+        <tr><td>身心健康</td><td>生理-岗位适配</td><td>生理特质决定职业耐受度；身心协同</td><td>可穿戴+应激归因</td><td>[15,16]</td></tr>
+        <tr><td>身心健康</td><td>可穿戴可行性</td><td>HRV共时效度确认；SVM/CNN分类有效</td><td>生理监测模块</td><td>[17-22]</td></tr>
+        <tr><td>家庭因素</td><td>SES与代际传递</td><td>心理资本完全中介；间接影响大于直接</td><td>家庭约束多维建模</td><td>[23-26,28,29]</td></tr>
+        <tr><td>家庭因素</td><td>家庭功能动态</td><td>静态SES+动态支持质量共同作用</td><td>家庭支持质量评估</td><td>[32,33]</td></tr>
+        <tr><td>家庭因素</td><td>父母期望效应</td><td>直接指令无效；期望类型+性别交互；倒U型</td><td>自主防火墙机制</td><td>[34-37]</td></tr>
+        <tr><td>自主性</td><td>CDMSE</td><td>目标选择的先决地位；元分析确证</td><td>Step0不可替代性</td><td>[38-41]</td></tr>
+        <tr><td>自主性</td><td>小镇做题家</td><td>目标掌控vs直觉依赖；两个亚型</td><td>案例参照引擎</td><td>[42-44]</td></tr>
+        <tr><td>综合</td><td>后致性因素</td><td>个人努力效应大于家庭背景效应</td><td>差异化补偿设计</td><td>[31]</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ====== 八、参考文献 ====== -->
+<div class="section">
+  <div class="section-title"><span class="num">八</span> 参考文献清单</div>
+  <div class="ref-list">
+    <p>[01] Ryan, R.M. &amp; Deci, E.L. (2017). <em>Self-determination theory</em>. Guilford Press.</p>
+    <p>[02] Savickas, M.L. (2005). The theory and practice of career construction. In Brown &amp; Lent (Eds.), <em>Career development and counseling</em>. Wiley.</p>
+    <p>[03] Lent, R.W., Brown, S.D. &amp; Hackett, G. (1994). Toward a unifying social cognitive theory of career and academic interest. <em>J Vocational Behavior</em>, 45(1), 79-122.</p>
+    <p>[04] Cahyasari, A.C. (2024). Self-determination influence on career decision-making. Universitas Muhammadiyah Malang.</p>
+    <p>[05] Lu, L., Gao, X. &amp; Xiao, Y. (2024). Impact of perceived teacher support on career exploration. <em>Innovations in Education and Teaching Intl</em>, 61(3), 528-540.</p>
+    <p>[06] Savickas, M.L. &amp; Porfeli, E.J. (2012). Career Adapt-Abilities Scale. <em>J Vocational Behavior</em>, 80(3), 661-673.</p>
+    <p>[07] Predictors of Career Adaptability among Chinese Higher Education Students. (2025). <em>IJLTER</em>.</p>
+    <p>[08] Gao, L., Li, Y. &amp; Pang, W. (2025). Career adaptability and graduates mental health. <em>BMC Psychology</em>, 13(1), 158.</p>
+    <p>[09] 社会认知职业理论视域下社会工作专业本科生职业选择机制探讨. <em>社会工作与管理</em>, 2024(01).</p>
+    <p>[10] 基于社会认知职业理论的新时期高校毕业生就业心态与求职行为调查. <em>中国大学生就业</em>, 2024(03).</p>
+    <p>[11] 高职生职业决策自我效能感与心理健康状况的相关性实证研究. <em>教育理论与实践</em>, 2010(12).</p>
+    <p>[12] 大学生自尊对职业决策困难的影响：链式中介效应. <em>高校辅导员学刊</em>, 2023(06).</p>
+    <p>[13] 大学生就业压力及影响因素分析. <em>中国大学生就业</em>, 2022(14).</p>
+    <p>[14] 大学生积极心理品质与可就业能力关系研究. <em>中国健康心理学杂志</em>, 2023.</p>
+    <p>[15] 弓运泽. 基于全国2929份问卷的大学生职业决策能力影响因素研究.</p>
+    <p>[16] Benitez-Agudelo, J.C. et al. (2025). Longitudinal effects of stress in academic context. <em>BMC Psychology</em>, 13, 03041.</p>
+    <p>[17] Kim, H.J., Park, Y. &amp; Lee, J. (2024). The validity of HRV in educational research. <em>Educational Psychology Review</em>, 36.</p>
+    <p>[18] Bloomfield, L.S.P. et al. (2024). Predicting stress using sleep data from wearables. <em>PLoS ONE</em>, 19(4): e0299795.</p>
+    <p>[19] Al-Hamad, A. et al. (2024). Performance of wearable AI in detecting stress. <em>J Med Internet Res</em>, 26: e52622.</p>
+    <p>[20] Unobtrusive stress detection using wearables in university setting. (2025). <em>Front Comput Sci</em>, 7.</p>
+    <p>[21] Laborde, S. et al. (2017). HRV in psychophysiological research. <em>Frontiers in Psychology</em>, 8: 213.</p>
+    <p>[22] Shaffer, F. &amp; Ginsberg, J.P. (2017). HRV metrics and norms. <em>Frontiers in Public Health</em>, 5: 258.</p>
+    <p>[23] Fouad, N.A. &amp; Brown, M.T. (2000). Role of race and social class. In Brown &amp; Lent (Eds.), <em>Handbook</em>. Wiley.</p>
+    <p>[24] 王昳玥, 周霞等. (2021). 家庭SES与大学生职业探索：心理资本的中介效应. <em>中国健康心理学杂志</em>, 29(6).</p>
+    <p>[25] 曲可佳, 邹泓. (2013). 家庭SES、父母教养行为与大学生职业生涯探索. <em>心理发展与教育</em>, 2013(5).</p>
+    <p>[26] 郝建, 胡永远. 家庭背景对大学生工作搜寻及就业的影响研究.</p>
+    <p>[27] 家庭资本与大学生就业认知实证研究. <em>合作经济与科技</em>, 2019(05).</p>
+    <p>[28] Li, H. et al. (2012). Does having a cadre parent pay? <em>J Development Economics</em>, 99(2): 513-520.</p>
+    <p>[29] 边燕杰等. (2008). 影响高校大学生职业选择的因素分析. <em>社会</em>, 2008(2).</p>
+    <p>[30] 周宇香. (2020). 家庭因素对建档立卡贫困大学生就业发展的影响. <em>青年探索</em>, 2020(3).</p>
+    <p>[31] 刘保中等. (2021). 先赋还是后致：什么在影响大学生就业能力? <em>教育经济评论</em>.</p>
+    <p>[32] 刘天阳, 顾雪英. 家庭因素对大学生职业探索的影响研究.</p>
+    <p>[33] 家庭系统情境对职业决策自我效能感的影响研究. <em>北京青年研究</em>, 2020(01).</p>
+    <p>[34] Zhou, N. et al. (2023). Parental career expectation predicts adolescent career development. <em>J Career Assessment</em>, 32(1).</p>
+    <p>[35] Qi, Y. et al. (2024). How important are parental career expectations? <em>J Youth and Adolescence</em>, 53.</p>
+    <p>[36] Zhu, J. et al. (2023). Parental career expectations and career indecisiveness across gender. <em>J Career Development</em>, 50(3).</p>
+    <p>[37] Too-much-of-a-good-thing? Perceived parental career expectation. (2023). <em>J Counseling Psychology</em>, 70(5).</p>
+    <p>[38] 职业决策自我效能感对大学生就业选择的作用机理. <em>当代体育科技</em>, 2024(15).</p>
+    <p>[39] 大学生职业决策自我效能感的元分析. <em>应用心理学</em>, 2016(01).</p>
+    <p>[40] 大学生核心自我评价与生涯适应力关系研究.</p>
+    <p>[41] 大学生归因风格、心理韧性与职业决策自我效能感的关系研究.</p>
+    <p>[42] 郑雅君. (2023). <em>金榜题名之后：大学生出路分化之谜</em>. 上海三联书店.</p>
+    <p>[43] 家庭教养模式、流动距离与小镇做题家心态的生成. <em>中国青年研究</em>, 2023(10).</p>
+    <p>[44] 精英大学小镇做题家跨场域适应研究[D]. 云南师范大学.</p>
+    <p>[45] 布尔迪厄, 帕斯隆. (2002). <em>继承人——大学生与文化</em>. 商务印书馆.</p>
+    <p>[46] 拉鲁, A. (2018). <em>不平等的童年</em>. 北京大学出版社.</p>
+    <p>[47] 帕特南, R.D. (2017). <em>我们的孩子</em>. 中国政法大学出版社.</p>
+    <p>[48] 大学生就业意愿：主观与客观学业成就影响. <em>化工高等教育</em>, 2023(04).</p>
+    <p>[49] 生涯混沌理论视角下大学生职业决策影响因素研究. <em>黑龙江科学</em>, 2026(07).</p>
+    <p>[50] 大学生职业价值观形成过程与发生机制. <em>高校辅导员学刊</em>, 2023(03).</p>
+    <p>[51] 杨仕元等. 大学生就业压力及影响因素分析. <em>中国大学生就业</em>, 2022(14).</p>
+    <p>[52] Clemente-Suarez, V.J. et al. (2026). Psychophysiological stress responses in higher education. <em>Trends in Neuroscience and Education</em>.</p>
+    <p>[53] Chen, L. &amp; Zhang, R.C. (2024). Career construction theory and gender differences. <em>J Educational and Social Research</em>, 14(6).</p>
+    <p>[54] 家庭资本和人力资本对青年就业质量的影响. <em>广东青年研究</em>, 2025(01).</p>
+    <p>[55] 社会资本影响大学生就业的两面性研究.</p>
+  </div>
+  <div class="doc-note">
+    本综述共引用55条参考文献（英文22篇、中文28篇、专著4部、学位论文1篇）。文献来源包括 PubMed、Web of Science、Scopus、CNKI 等学术数据库。
+  </div>
+</div>
+
+</div>
+</body>
+</html>

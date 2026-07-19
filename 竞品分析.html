@@ -43,17 +43,18 @@
   /* Cover */
   .cover {
     max-width: 1000px;
-    margin: 0 auto 50px;
+    margin: 0 auto 28px;
     text-align: center;
     position: relative;
-    background: linear-gradient(135deg, #FFFFFF 0%, #FAFEFC 60%, #F0F9F3 100%);
-    border-radius: 24px;
+    background: linear-gradient(135deg, #FFFFFF 0%, #E6F5EC 40%, #C8E6D0 75%, #A8D8B8 100%);
+    border-radius: 16px;
     overflow: hidden;
-    border: 1px solid rgba(45, 170, 102, 0.18);
+    border: 1px solid rgba(45, 170, 102, 0.25);
     box-shadow:
-      0 20px 60px rgba(45, 170, 102, 0.1),
+      0 8px 32px rgba(45, 170, 102, 0.12),
       0 4px 12px rgba(0, 0, 0, 0.04);
-    min-height: 520px;
+    min-height: 380px;
+    display: flex; align-items: center; justify-content: center;
   }
   .cover-art {
     position: absolute; inset: 0; pointer-events: none;
@@ -61,7 +62,9 @@
   }
   .cover-content {
     position: relative; z-index: 2;
-    padding: 70px 50px 60px;
+    padding: 40px 50px 40px;
+    width: 100%;
+    display: flex; flex-direction: column; align-items: center; gap: 18px;
   }
   .cover-badge {
     display: inline-flex;
@@ -83,6 +86,30 @@
     background: #fff;
     border-radius: 50%;
     box-shadow: 0 0 8px #fff;
+  }
+  .cover-badge{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    background: var(--primary);
+    color: #fff;
+    border-radius: 28px;
+    font-size: 14px; font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 20px rgba(45, 170, 102, 0.4);
+  }
+  .product-name-tag{
+    display: inline-block;
+    padding: 5px 18px;
+    background: rgba(255,255,255,0.7);
+    border: 1px solid rgba(45,170,102,0.35);
+    border-radius: 22px;
+    font-size: 11px; font-weight: 700; letter-spacing: 4px;
+    color: #1B5E3F;
+    backdrop-filter: blur(4px);
+    margin-bottom: -10px;
   }
   .cover h1 {
     font-size: 56px;
@@ -134,15 +161,15 @@
   }
   .cover .meta {
     display: flex; justify-content: center; gap: 0; flex-wrap: wrap;
-    border-top: 1px solid rgba(45, 170, 102, 0.12);
-    border-bottom: 1px solid rgba(45, 170, 102, 0.12);
+    border-top: 1px solid rgba(45, 170, 102, 0.15);
+    border-bottom: 1px solid rgba(45, 170, 102, 0.15);
     padding: 24px 0;
-    max-width: 720px;
+    max-width: 920px;
     margin: 0 auto;
   }
   .cover .meta-item {
-    text-align: center; padding: 0 40px;
-    border-right: 1px solid rgba(45, 170, 102, 0.12);
+    text-align: center; padding: 0 30px;
+    border-right: 1px solid rgba(45, 170, 102, 0.15);
   }
   .cover .meta-item:last-child { border-right: none; }
   .cover .meta-label {
@@ -487,7 +514,7 @@
   </svg>
 
   <div class="cover-content">
-    <div class="cover-badge">大学生职业规划产品 · COMPETITIVE ANALYSIS</div>
+    <div class="cover-badge">华图教育 AI 产品开题报告</div>
     <h1>产品<span class="accent">竞品分析</span></h1>
     <div class="title-glow"></div>
     <p class="subtitle">覆盖 12 款产品  ·  自有调研 + 行业资料  ·  为自研产品提供差异化依据</p>
@@ -497,12 +524,20 @@
         <div class="meta-value">蝶飞梧桐</div>
       </div>
       <div class="meta-item">
-        <div class="meta-label">Date</div>
-        <div class="meta-value">2026 年 7 月</div>
+        <div class="meta-label">Direction</div>
+        <div class="meta-value">AI + 综合领域</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Target</div>
+        <div class="meta-value">华图教育</div>
       </div>
       <div class="meta-item">
         <div class="meta-label">Scope</div>
         <div class="meta-value">12 款竞品 / 5 大类别</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Date</div>
+        <div class="meta-value">2026 年 7 月</div>
       </div>
     </div>
     <div class="tagline">— 看清自己，看清现实，看清前路 —</div>
@@ -806,7 +841,7 @@
           <td class="row-header">测评维度</td>
           <td>3</td><td>24 类</td><td>6 维</td><td>基础</td><td>人工</td>
           <td>弱</td><td>4 (零散)</td><td>3</td><td>基础+对话</td><td>弱</td>
-          <td class="highlight"><b>6 (含家庭+生理)</b></td>
+          <td class="highlight"><b>8 (含家庭情况+健康情况)</b></td>
         </tr>
         <tr>
           <td class="row-header">客观约束筛查</td>
@@ -878,8 +913,9 @@
       <p>将抗压能力从用户自述升级为传感器持续采集 + 因果归因，识别不适合的岗位类型并预警。<strong style="color: var(--primary-dark);">行业首创。</strong></p>
     </div>
     <div class="card" style="background: var(--green-light); border-color: rgba(45,170,102,0.25);">
-      <h4>机会三：正反案例 + 反向参照</h4>
-      <p>构建正反案例库，帮学生优先排除错误选项——对认知有限的大学生，<strong style="color: var(--primary-dark);">避错比求对更具现实价值</strong>。</p>
+      <h4>机会三：前人案例参照</h4>
+      <p>构建<strong>正面案例库 — 人生榜样</strong>，基于八维画像做相似度匹配，推荐<strong class="hl-num">"人生榜样"</strong>及完整轨迹时间轴（专业选择、关键决策、转折点），让抽象规划转化为具体可感知的路径参照。</p>
+      <p>对<strong>认知有限的大学生</strong>尤其重要——<span class="good">看见具体的人走过的路</span>比抽象的规划建议更有效。</p>
     </div>
     <div class="card" style="background: var(--green-light); border-color: rgba(45,170,102,0.25);">
       <h4>机会四：下沉市场覆盖</h4>
@@ -938,7 +974,8 @@
     </div>
     <div class="card">
       <h4>引擎二：前人案例匹配</h4>
-      <p>六维画像与正反案例库做相似度匹配，优先排除不适配选项。冷启动由华图教研专家标注 100~200 条典型路径案例。</p>
+      <p>基于<strong>八维画像</strong>做相似度匹配，从<strong>正面案例库</strong>召回背景相似、目标达成的真实案例，展示其<strong>完整轨迹时间轴</strong>（专业选择 → 关键决策 → 转折点）。</p>
+      <p>冷启动由华图教研专家标注 <strong>100~200</strong> 条典型路径案例，数据积累后切换相似度匹配算法。</p>
     </div>
     <div class="card">
       <h4>引擎三：阶段任务生成</h4>
@@ -960,7 +997,10 @@
     <p style="font-size:15px; font-weight:600;">竞争壁垒：三个"没人做"——目的分化 · 客观约束筛查 · 前车之鉴</p>
   </div>
   <p style="text-align:center; font-size:15px; margin-top: 18px; color: var(--primary-dark); font-weight:600;">
-    核心理念：不替学生做选择，而是让选择的风险可见。
+    让每一位大学生，都拥有一份属于自己的、看得见未来的成长地图。
+  </p>
+  <p style="text-align:center; font-size:13px; margin-top: 10px; color: var(--text-muted); font-style:italic;">
+    「职途有声」陪伴中国 4000 万大学生走好大学四年的每一步
   </p>
 </div>
 

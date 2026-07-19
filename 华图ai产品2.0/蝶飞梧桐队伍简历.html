@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="蝶飞梧桐团队简历：AI工程、产品设计、用户研究、数据分析与运营落地。" />
+  <title>蝶飞梧桐｜团队简历</title>
+  <style>
+    :root {
+      --page: #f2f6fb;
+      --paper: #ffffff;
+      --ink: #172033;
+      --text: #34435a;
+      --muted: #6b7b91;
+      --line: #dbe5f0;
+      --light: #f5f8fc;
+      --blue: #2457d6;
+      --blue-dark: #173f9f;
+      --blue-soft: #edf4ff;
+      --cyan: #0c9cad;
+      --green: #16845f;
+      --gold: #ad7416;
+      --shadow: 0 24px 70px rgba(29, 47, 79, 0.12);
+      --radius: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", Arial, sans-serif;
+      line-height: 1.68;
+      background:
+        linear-gradient(90deg, rgba(36, 87, 214, 0.035) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(36, 87, 214, 0.035) 1px, transparent 1px),
+        var(--page);
+      background-size: 42px 42px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      width: min(1180px, calc(100vw - 40px));
+      margin: 28px auto;
+      overflow: hidden;
+      position: relative;
+      background: var(--paper);
+      border: 1px solid rgba(211, 224, 239, 0.95);
+      box-shadow: var(--shadow);
+    }
+
+    .page::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 7px;
+      background: linear-gradient(90deg, var(--blue), var(--cyan), #78b6ff);
+      z-index: 2;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.65fr);
+      gap: 36px;
+      align-items: center;
+      padding: 54px 52px 38px;
+      border-bottom: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 94% 8%, rgba(12, 156, 173, 0.12), transparent 24%),
+        radial-gradient(circle at 78% 62%, rgba(36, 87, 214, 0.08), transparent 28%),
+        #fff;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+      padding: 6px 12px;
+      color: var(--blue-dark);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      background: var(--blue-soft);
+      border: 1px solid #d5e5ff;
+      border-radius: 999px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 0 4px rgba(12, 156, 173, 0.12);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(42px, 6vw, 68px);
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-subtitle {
+      margin: 14px 0 12px;
+      color: var(--blue);
+      font-size: clamp(20px, 2.5vw, 26px);
+      font-weight: 800;
+      line-height: 1.38;
+    }
+
+    .hero-desc {
+      max-width: 730px;
+      margin: 0;
+      color: var(--text);
+      font-size: 16px;
+    }
+
+    .hero-desc strong {
+      color: var(--ink);
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 22px;
+    }
+
+    .tag {
+      padding: 7px 12px;
+      color: #35506f;
+      font-size: 13px;
+      font-weight: 700;
+      background: #f7faff;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+    }
+
+    .hero-panel {
+      padding: 24px;
+      background: linear-gradient(145deg, #f7faff, #eef5ff);
+      border: 1px solid #d7e4f3;
+      border-radius: 26px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-panel::after {
+      content: "";
+      position: absolute;
+      right: -32px;
+      bottom: -42px;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: rgba(12, 156, 173, 0.08);
+    }
+
+    .panel-title {
+      margin: 0 0 18px;
+      color: var(--blue-dark);
+      font-size: 15px;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stat {
+      min-height: 94px;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid #dbe7f5;
+      border-radius: 16px;
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--blue);
+      font-size: 29px;
+      line-height: 1.1;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .content {
+      padding: 4px 52px 52px;
+    }
+
+    .section {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 38px;
+      padding: 38px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .section-heading {
+      align-self: start;
+      position: sticky;
+      top: 20px;
+    }
+
+    .section-index {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--cyan);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+    }
+
+    .section-title {
+      margin: 0;
+      color: var(--blue);
+      font-size: 20px;
+      line-height: 1.3;
+    }
+
+    .section-note {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 44px;
+      height: 3px;
+      margin-top: 14px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
+    }
+
+    .position-card {
+      padding: 22px 24px;
+      color: var(--text);
+      font-size: 16px;
+      background: linear-gradient(135deg, #f8fbff, #f2f7ff);
+      border: 1px solid #d8e6f5;
+      border-left: 4px solid var(--blue);
+      border-radius: 0 18px 18px 0;
+    }
+
+    .position-card strong {
+      color: var(--ink);
+    }
+
+    .match-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .match-item {
+      padding: 17px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+    }
+
+    .match-item b {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--blue-dark);
+      font-size: 15px;
+    }
+
+    .match-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .members {
+      display: grid;
+      gap: 18px;
+    }
+
+    .member {
+      display: grid;
+      grid-template-columns: 168px minmax(0, 1fr);
+      gap: 24px;
+      padding: 24px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .member-main {
+      padding-right: 18px;
+      border-right: 1px solid var(--line);
+    }
+
+    .member-name {
+      margin: 0;
+      font-size: 24px;
+      line-height: 1.25;
+    }
+
+    .member-role {
+      margin: 8px 0 0;
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .member-badge {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 5px 9px;
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 800;
+      background: #edf9f4;
+      border: 1px solid #d0eee2;
+      border-radius: 999px;
+    }
+
+    .member-school {
+      margin: 0 0 10px;
+      color: var(--text);
+      font-size: 14px;
+    }
+
+    .member-school strong {
+      color: var(--ink);
+    }
+
+    .member-points {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      color: var(--text);
+      font-size: 14px;
+    }
+
+    .member-points li {
+      position: relative;
+      padding-left: 18px;
+    }
+
+    .member-points li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--cyan);
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .project {
+      min-height: 188px;
+      padding: 21px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      position: relative;
+    }
+
+    .project::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 22px;
+      width: 4px;
+      height: 42px;
+      border-radius: 0 999px 999px 0;
+      background: linear-gradient(var(--blue), var(--cyan));
+    }
+
+    .project-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 9px;
+    }
+
+    .project-label {
+      padding: 4px 8px;
+      color: var(--blue-dark);
+      font-size: 11px;
+      font-weight: 900;
+      background: var(--blue-soft);
+      border-radius: 999px;
+    }
+
+    .project h3 {
+      margin: 0 0 8px;
+      color: var(--ink);
+      font-size: 18px;
+      line-height: 1.45;
+    }
+
+    .project p {
+      margin: 0;
+      color: var(--text);
+      font-size: 13px;
+      line-height: 1.72;
+    }
+
+    .result {
+      display: inline-block;
+      margin-top: 12px;
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .experience-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .experience-column {
+      padding: 22px;
+      background: var(--light);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .experience-column h3 {
+      margin: 0 0 14px;
+      color: var(--blue);
+      font-size: 16px;
+    }
+
+    .experience-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .experience-item {
+      padding: 13px 14px;
+      background: #fff;
+      border: 1px solid #e1e9f2;
+      border-radius: 13px;
+    }
+
+    .experience-item strong {
+      display: block;
+      color: var(--ink);
+      font-size: 14px;
+    }
+
+    .experience-item span {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .closing {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 22px;
+      align-items: center;
+      padding: 26px 28px;
+      color: #fff;
+      background: linear-gradient(110deg, var(--blue-dark), var(--blue) 60%, var(--cyan));
+      border-radius: var(--radius);
+    }
+
+    .closing h3 {
+      margin: 0 0 7px;
+      font-size: 20px;
+    }
+
+    .closing p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 14px;
+    }
+
+    .closing-mark {
+      width: 72px;
+      height: 72px;
+      display: grid;
+      place-items: center;
+      font-size: 24px;
+      font-weight: 900;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .footer {
+      padding: 22px 52px 30px;
+      color: var(--muted);
+      font-size: 12px;
+      text-align: center;
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .section {
+        grid-template-columns: 1fr;
+      }
+
+      .section-heading {
+        position: static;
+      }
+
+      .hero-panel {
+        max-width: 620px;
+      }
+
+      .match-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .page {
+        width: calc(100vw - 18px);
+        margin: 9px auto;
+      }
+
+      .hero,
+      .content,
+      .footer {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .hero {
+        padding-top: 38px;
+      }
+
+      .stats,
+      .match-grid,
+      .projects,
+      .experience-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .member {
+        grid-template-columns: 1fr;
+      }
+
+      .member-main {
+        padding-right: 0;
+        padding-bottom: 15px;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .closing {
+        grid-template-columns: 1fr;
+      }
+
+      .closing-mark {
+        display: none;
+      }
+    }
+
+    @media print {
+      @page {
+        size: A4;
+        margin: 10mm;
+      }
+
+      body {
+        background: #fff;
+      }
+
+      .page {
+        width: 100%;
+        margin: 0;
+        border: 0;
+        box-shadow: none;
+      }
+
+      .hero {
+        padding-top: 38px;
+      }
+
+      .section-heading {
+        position: static;
+      }
+
+      .member,
+      .project,
+      .experience-column,
+      .closing,
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div>
+        <span class="eyebrow">TEAM PROFILE · AI APPLICATION</span>
+        <h1>蝶飞梧桐</h1>
+        <h2 class="hero-subtitle">兼具技术实现、用户研究与产品落地能力的跨学科团队</h2>
+        <p class="hero-desc">
+          团队成员拥有北京大学、香港大学、香港中文大学、同济大学等高校背景，覆盖计算机、软件工程、物联网、交通运输、新闻传播与英语等学科专业。
+          面向<strong>大学生全周期伴学与职业规划</strong>场景，团队能够完成从需求洞察、方案设计、AI 系统开发，到数据评估、用户运营和路演呈现的完整闭环。
+        </p>
+        <div class="hero-tags" aria-label="团队关键词">
+          <span class="tag">AI 应用开发</span>
+          <span class="tag">Agent 产品</span>
+          <span class="tag">教育科技</span>
+          <span class="tag">用户研究</span>
+          <span class="tag">数据分析</span>
+          <span class="tag">运营转化</span>
+        </div>
+      </div>
+
+      <aside class="hero-panel" aria-label="团队概览">
+        <p class="panel-title">团队概览</p>
+        <div class="stats">
+          <div class="stat"><strong>3</strong><span>名跨职能成员</span></div>
+          <div class="stat"><strong>6</strong><span>所高校教育背景</span></div>
+          <div class="stat"><strong>10+</strong><span>项研发与研究经历</span></div>
+          <div class="stat"><strong>400+</strong><span>真实产品用户</span></div>
+        </div>
+      </aside>
+    </header>
+
+    <div class="content">
+      <section class="section">
+        <div class="section-heading">
+          <span class="section-index">01 · POSITIONING</span>
+          <h2 class="section-title">团队定位</h2>
+        </div>
+        <div>
+          <div class="position-card">
+            <strong>我们的团队优势不只是“背景多元”，而是能力能够真正闭环。</strong>
+            技术成员负责 AI 能力与系统工程落地，产品与运营成员负责用户需求、方案设计和传播转化，数据研究成员负责调研、建模与效果评估。三类能力互相校验，降低“方案很好但做不出来”或“系统能跑但不解决真实问题”的风险。
+          </div>
+          <div class="match-grid">
+            <article class="match-item">
+              <b>需求洞察</b>
+              <p>具备学生视角、教育产品经验和用户调研经历，能够识别大学生真实决策困境。</p>
+            </article>
+            <article class="match-item">
+              <b>AI 工程</b>
+              <p>具备 Agent、AI 评分、AI 阅读、后端服务、数据库及部署经验，可快速实现可运行 Demo。</p>
+            </article>
+            <article class="match-item">
+              <b>效果评估</b>
+              <p>具备问卷研究、交通与物流建模、数据清洗和实验分析能力，能够建立量化指标。</p>
+            </article>
+            <article class="match-item">
+              <b>推广表达</b>
+              <p>具备产品策略、商务运营、内容传播与路演表达经验，可支持项目触达和商业化分析。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <span class="section-index">02 · MEMBERS</span>
+          <h2 class="section-title">成员与分工</h2>
+        </div>
+
+        <div class="members">
+          <article class="member">
+            <div class="member-main">
+              <h3 class="member-name">王业同</h3>
+              <p class="member-role">技术研发与产品落地</p>
+              <span class="member-badge">全栈工程 · AI 应用</span>
+            </div>
+            <div>
+              <p class="member-school">
+                <strong>北京大学</strong> 软件工程硕士<br />
+                <strong>深圳技术大学</strong> 物联网工程本科
+              </p>
+              <ul class="member-points">
+                <li>具备 AI 产品从需求设计、前后端开发、数据库建设到云端部署的完整实践经验。</li>
+                <li>独立开发 AI 英语外刊阅读微信小程序“拼可精读”，累计服务 400+ 用户。</li>
+                <li>参与北大软微相关 AI 英语口语评分与模拟考试项目，负责系统开发与维护。</li>
+                <li>曾任职华为车载 4D 毫米波雷达项目，负责现网问题定位与自动化回归相关工作。</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="member">
+            <div class="member-main">
+              <h3 class="member-name">胡蝶</h3>
+              <p class="member-role">产品策略与运营传播</p>
+              <span class="member-badge">Agent 产品 · 商务运营</span>
+            </div>
+            <div>
+              <p class="member-school">
+                <strong>香港中文大学</strong> 计算机科学与技术硕士<br />
+                <strong>北京大学</strong> 软件工程本科；<strong>北京外国语大学</strong> 新闻学 / 英语双专业本科
+              </p>
+              <ul class="member-points">
+                <li>兼具计算机、产品设计、新闻传播与英语能力，能够连接技术实现与用户表达。</li>
+                <li>拥有百度 Agent 策略产品与国际化商务运营经历，熟悉产品分析、用户沟通和运营转化。</li>
+                <li>参与 Meet2Code 智能办公 Agent 项目，在百度第 31 届 Hackathon 中获潜力黑马奖。</li>
+                <li>具备文生视频智能体、内容运营、活动策划与路演包装等实践经验。</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="member">
+            <div class="member-main">
+              <h3 class="member-name">吴寒</h3>
+              <p class="member-role">数据建模与用户研究</p>
+              <span class="member-badge">建模分析 · 产品设计</span>
+            </div>
+            <div>
+              <p class="member-school">
+                <strong>香港大学</strong> 计算机科学与技术硕士<br />
+                <strong>同济大学</strong> 交通运输本科
+              </p>
+              <ul class="member-points">
+                <li>具备交通、物流、计算机交叉背景，熟悉数据清洗、建模优化、问卷研究与效果评估。</li>
+                <li>参与自动驾驶车速引导、轨道交通时刻表优化、逆向物流和无人配送车满意度研究。</li>
+                <li>拥有物流企业数据分析与京东 TET 集团管理培训生经历，理解业务运营与供应链场景。</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <span class="section-index">03 · EVIDENCE</span>
+          <h2 class="section-title">代表项目</h2>
+        </div>
+
+        <!-- 提交前建议团队再次核对以下项目归属、名称及奖项官方表述。 -->
+        <div class="projects">
+          <article class="project">
+            <div class="project-meta">
+              <span class="project-label">Agent 产品</span>
+            </div>
+            <h3>Meet2Code 智能办公 Agent</h3>
+            <p>围绕会议与办公协作场景完成需求分析、Agent 流程设计与产品方案呈现，验证大模型在复杂办公任务中的应用价值。</p>
+            <span class="result">百度第 31 届 Hackathon 潜力黑马奖（20 / 355）</span>
+          </article>
+
+          <article class="project">
+            <div class="project-meta">
+              <span class="project-label">AI 教育</span>
+            </div>
+            <h3>AI 英语口语评分与模拟考试系统</h3>
+            <p>参与面向英语口语考试的 AI 系统开发，覆盖考试流程、评分任务、后台管理与服务部署，积累教育测评产品工程经验。</p>
+            <span class="result">真实业务系统 · 持续开发维护</span>
+          </article>
+
+          <article class="project">
+            <div class="project-meta">
+              <span class="project-label">独立产品</span>
+            </div>
+            <h3>拼可精读｜AI 英语外刊阅读小程序</h3>
+            <p>从 0 到 1 完成用户需求、产品设计、前后端、AI 语境分析、数据存储、服务器部署与运营验证，形成完整产品闭环。</p>
+            <span class="result">累计 400+ 用户</span>
+          </article>
+
+          <article class="project">
+            <div class="project-meta">
+              <span class="project-label">工程效能</span>
+            </div>
+            <h3>车载 4D 毫米波雷达自动化回归平台</h3>
+            <p>围绕现网问题定位和 HIL 回归工作，建设自动化测试与问题分析流程，提升复杂工程项目中的验证效率和交付稳定性。</p>
+            <span class="result">回归效率提升 300%+</span>
+          </article>
+
+          <article class="project">
+            <div class="project-meta">
+              <span class="project-label">智慧交通</span>
+            </div>
+            <h3>“川交好运”智运平台设计</h3>
+            <p>面向交通运输与物流协同场景，完成业务问题拆解、平台方案设计和模型分析，体现复杂场景中的系统设计能力。</p>
+            <span class="result">全国第三名</span>
+          </article>
+
+          <article class="project">
+            <div class="project-meta">
+              <span class="project-label">用户研究</span>
+            </div>
+            <h3>无人配送车用户满意度研究</h3>
+            <p>围绕新技术接受与用户体验开展调研分析，具备问卷设计、数据建模、影响因素识别和结论表达能力。</p>
+            <span class="result">为产品用户研究与效果评估提供方法基础</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <span class="section-index">04 · EXPERIENCE</span>
+          <h2 class="section-title">工作与实习</h2>
+          <p class="section-note">企业经历覆盖技术研发、产品策略、商务运营和数据分析。</p>
+        </div>
+
+        <div class="experience-grid">
+          <div class="experience-column">
+            <h3>技术与产品</h3>
+            <div class="experience-list">
+              <div class="experience-item">
+                <strong>华为技术有限公司</strong>
+                <span>车载 4D 毫米波雷达 · 现网问题定位与自动化回归</span>
+              </div>
+              <div class="experience-item">
+                <strong>百度在线网络技术</strong>
+                <span>Agent 策略产品</span>
+              </div>
+              <div class="experience-item">
+                <strong>北大软微相关项目</strong>
+                <span>AI 英语口语评分与模拟考试系统开发</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="experience-column">
+            <h3>运营与数据</h3>
+            <div class="experience-list">
+              <div class="experience-item">
+                <strong>百度在线网络技术</strong>
+                <span>国际化商务运营</span>
+              </div>
+              <div class="experience-item">
+                <strong>京东世纪贸易有限公司</strong>
+                <span>TET 集团管理培训生</span>
+              </div>
+              <div class="experience-item">
+                <strong>普洛斯投资有限公司</strong>
+                <span>数据分析</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <span class="section-index">05 · DELIVERY</span>
+          <h2 class="section-title">交付能力</h2>
+          <p class="section-note">从赛题拆解到 Demo 与答辩，形成完整交付链路。</p>
+        </div>
+
+        <div class="closing">
+          <div>
+            <h3>我们能够把“想法”推进为可验证的产品。</h3>
+            <p>团队可并行完成用户调研、产品原型、AI 功能开发、数据指标设计、运营方案与路演材料，并在真实反馈中持续迭代。</p>
+          </div>
+          <div class="closing-mark" aria-hidden="true">DF</div>
+        </div>
+      </section>
+    </div>
+
+    <footer class="footer">
+      蝶飞梧桐团队简历
+    </footer>
+  </main>
+</body>
+</html>

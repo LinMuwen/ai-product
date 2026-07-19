@@ -32,7 +32,7 @@ body::after{
   border-radius: 16px; overflow: hidden;
   border: 1px solid rgba(45,170,102,0.25);
   box-shadow: 0 8px 32px rgba(45,170,102,0.12);
-  min-height: 440px;
+  min-height: 520px;
   display: flex; align-items: center; justify-content: center;
 }
 .cover-art{position:absolute;inset:0;pointer-events:none;z-index:1}
@@ -220,7 +220,7 @@ blockquote{
 
 /* ==== Agent Mini Grid (in module card) ==== */
 .agent-mini-grid{
-  display:grid; grid-template-columns:repeat(3, 1fr);
+  display:grid; grid-template-columns:repeat(6, 1fr);
   gap:5px; margin:10px 0 4px;
 }
 .agent-mini{
@@ -232,6 +232,7 @@ blockquote{
 .agent-mini.agent-data{background:rgba(74,144,226,0.08); color:#1E3A8A}
 .agent-mini.agent-plan{background:rgba(139,127,216,0.08); color:#4C1D95}
 .agent-mini.agent-monitor{background:rgba(45,170,102,0.1); color:#1B5E3F}
+.agent-mini.agent-core{background:rgba(45,170,102,0.2); color:#1B5E3F; border:1px solid rgba(45,170,102,0.3); font-weight:700}
 
 /* ==== Colored Tags ==== */
 /* 标签统一为绿色 */
@@ -462,7 +463,7 @@ blockquote{
   <p>Kim等（2024）确认HRV在测量教育应激水平时具有中等共时效度。Benitez-Agudelo等（2025）发现学生"更好的成绩可能以长期身心健康为代价"。</p>
   <blockquote><strong>→ 产品启示：</strong>用户授权同步的运动手表HRV监测已具备学术可行性，但目前尚无产品将其纳入职业规划辅助——这构成学术创新空间。</blockquote>
 
-  <div class="source-line">点击查看完整版附件 → 《产品设计依据-学术理论支撑》</div>
+  <div class="source-line">点击查看完整版附件 → <a href="https://linmuwen.github.io/ai-product/产品设计依据-学术理论支撑.html" target="_blank" style="color: var(--primary-dark); font-weight: 600; text-decoration: none;">《产品设计依据-学术理论支撑》</a></div>
 </div>
 
 <!-- ====== 四、核心功能设计 ====== -->
@@ -475,11 +476,11 @@ blockquote{
       <p>系统采用<strong>"1 个核心成长管家 Agent + N 个专业 Agent"</strong>的协作架构。核心 Agent 是学生唯一需要交互的入口，负责理解需求、管理上下文、调度专业 Agent、汇总结果并解释下一步。学生感受到的是一个<strong>持续理解自己的成长管家</strong>，背后则由多个专家 Agent 共同支持。</p>
       <div class="agent-mini-grid">
         <span class="agent-mini agent-core">核心成长管家</span>
-        <span class="agent-mini agent-data">画像与数据分析</span>
+        <span class="agent-mini agent-data">画像数据分析</span>
         <span class="agent-mini agent-plan">职业路径规划</span>
-        <span class="agent-mini agent-plan">任务与资源编排</span>
-        <span class="agent-mini agent-monitor">进度复盘与校准</span>
-        <span class="agent-mini agent-monitor">关键节点与风险提醒</span>
+        <span class="agent-mini agent-plan">资源课程检索</span>
+        <span class="agent-mini agent-monitor">进度复盘校准</span>
+        <span class="agent-mini agent-monitor">关键节点提醒</span>
       </div>
     </div>
     <div class="module-card">
